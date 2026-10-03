@@ -1,0 +1,38 @@
+# --- zależności i buildy ---
+node_modules/
+.expo/
+dist/
+web-build/
+ios/
+android/
+*.tsbuildinfo
+coverage/
+
+# --- sekrety: NIGDY w repozytorium (repo jest publiczne) ---
+.env
+.env.*
+!.env.example
+*.p8
+*.p12
+*.pem
+*.key
+*.jks
+*.keystore
+*.mobileprovision
+*.cer
+credentials.json
+google-services.json
+GoogleService-Info.plist
+eas-credentials*.json
+
+# --- treści: historie i nagrania żyją w prywatnym repozytorium warsztatu ---
+content/
+audio/
+*.mp3
+*.m4a
+*.wav
+
+# --- system ---
+.DS_Store
+Thumbs.db
+*.log
