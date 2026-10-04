@@ -25,4 +25,4 @@ Wszystko, czego aplikacja uczy albo co twierdzi (treść, liczby, zalecenia, reg
 4. Przewodniki i serwisy turystyczne z podanymi źródłami.
 5. Wikipedia tylko jako wskazówka, gdzie szukać; nigdy jako jedyne źródło faktu.
 
-Weryfikacja treści historii odbywa się w repozytorium  (100% faktów sprawdzonych względem surowych źródeł).
+Weryfikacja treści historii odbywa się w repozytorium `navistories-warsztat` (100% faktów sprawdzonych względem surowych źródeł).
