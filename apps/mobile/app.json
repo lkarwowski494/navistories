@@ -8,7 +8,7 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true,
+      "supportsTablet": false,
       "bundleIdentifier": "pl.navistories.app",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
@@ -46,7 +46,8 @@
           "isAndroidForegroundServiceEnabled": true
         }
       ],
-      "expo-asset"
+      "expo-asset",
+      "./plugins/bez-fetch"
     ]
   }
 }
