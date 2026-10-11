@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "NaviStories",
+    "slug": "navistories",
+    "scheme": "navistories",
+    "version": "0.0.1",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "pl.navistories.app",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "pl.navistories.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-audio",
+        {
+          "enableBackgroundPlayback": true,
+          "microphonePermission": false,
+          "recordAudioAndroid": false
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "NaviStories używa lokalizacji, żeby włączać historie przy mijanych miejscach, także przy zablokowanym ekranie w trakcie podróży.",
+          "locationAlwaysAndWhenInUsePermission": "NaviStories używa lokalizacji tylko w trakcie podróży, którą sam włączasz; nie potrzebuje dostępu „Zawsze”.",
+          "locationAlwaysPermission": "NaviStories używa lokalizacji tylko w trakcie podróży, którą sam włączasz; nie potrzebuje dostępu „Zawsze”.",
+          "motionUsagePermission": false,
+          "isIosBackgroundLocationEnabled": true,
+          "isAndroidBackgroundLocationEnabled": false,
+          "isAndroidForegroundServiceEnabled": true
+        }
+      ],
+      "expo-asset"
+    ]
+  }
+}
