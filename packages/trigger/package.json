@@ -1,0 +1,19 @@
+{
+  "name": "@navistories/trigger",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Logika wyzwalania historii NaviStories: czysty TypeScript, bez React Native.",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json && tsc -p tsconfig.test.json",
+    "fixture": "node scripts/generuj-fixture.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "typescript": "5.9.3",
+    "vitest": "3.2.7"
+  }
+}

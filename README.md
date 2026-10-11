@@ -13,3 +13,10 @@ Stan: przygotowanie do Iteracji 0 — pierwszy pełny przejazd na symulatorze z 
 ## Dane map
 
 Trasy wyznaczane na danych © współtwórcy OpenStreetMap (licencja ODbL).
+
+## Rozwój
+
+Monorepo pnpm (Node 22+, pnpm 10). `pnpm install`, potem `pnpm run ci`
+(typecheck i testy). Pakiety:
+
+- `packages/trigger`: logika wyzwalania historii (czysty TypeScript, bez React Native).
