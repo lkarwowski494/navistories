@@ -17,6 +17,10 @@ Trasy wyznaczane na danych © współtwórcy OpenStreetMap (licencja ODbL).
 ## Rozwój
 
 Monorepo pnpm (Node 22+, pnpm 10). `pnpm install`, potem `pnpm run ci`
-(typecheck i testy). Pakiety:
+(typecheck i testy wszystkich pakietów i aplikacji). Pakiety:
 
 - `packages/trigger`: logika wyzwalania historii (czysty TypeScript, bez React Native).
+- `packages/pakiet`: format pakietu trasy (JSON + audio), walidator, katalog (czysty TypeScript).
+- `packages/sesja`: adapter lokalizacja → `step()` → odtwarzacz za interfejsami (czysty TypeScript).
+- `apps/mobile`: aplikacja Expo (SDK 57, expo-router); uruchomienie, wymagania
+  iOS (lokalizacja i audio w tle) i plan buildu: `apps/mobile/README.md`.
