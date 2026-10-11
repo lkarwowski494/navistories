@@ -36,3 +36,9 @@ audio/
 .DS_Store
 Thumbs.db
 *.log
+
+# --- Expo / Metro (generowane) ---
+expo-env.d.ts
+.metro-health-check*
+*.orig.*
+.kotlin/

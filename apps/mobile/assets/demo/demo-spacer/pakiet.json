@@ -1,0 +1,162 @@
+{
+  "formatVersion": 1,
+  "version": "demo-1",
+  "aiGenerated": {
+    "text": false,
+    "voice": false
+  },
+  "id": "demo-spacer",
+  "title": "Spacer demonstracyjny (syntetyczny, ok. 2 km)",
+  "mode": "walk",
+  "themes": [
+    {
+      "id": "demo-spacer",
+      "name": "Motyw demonstracyjny"
+    }
+  ],
+  "durationMin": 30,
+  "route": [
+    [52, 21],
+    [52, 21.0003652],
+    [52, 21.0007304],
+    [52, 21.0010956],
+    [52, 21.0014607],
+    [52, 21.0018259],
+    [52, 21.0021911],
+    [52, 21.0025563],
+    [52, 21.0029215],
+    [52, 21.0032867],
+    [52, 21.0036518],
+    [52, 21.004017],
+    [52, 21.0043822],
+    [52, 21.0047474],
+    [52, 21.0051126],
+    [52, 21.0054778],
+    [52, 21.005843],
+    [52, 21.0062081],
+    [52, 21.0065733],
+    [52, 21.0069385],
+    [52, 21.0073037],
+    [52, 21.0076689],
+    [52, 21.0080341],
+    [52, 21.0083992],
+    [52, 21.0087644],
+    [52, 21.0091296],
+    [52, 21.0094948],
+    [52, 21.00986],
+    [52, 21.0102252],
+    [52, 21.0105904],
+    [52, 21.0109555],
+    [52, 21.0113207],
+    [52, 21.0116859],
+    [52, 21.0120511],
+    [52, 21.0124163],
+    [52, 21.0127815],
+    [52, 21.0131466],
+    [52, 21.0135118],
+    [52, 21.013877],
+    [52, 21.0142422],
+    [52, 21.0146074],
+    [52, 21.0149726],
+    [52, 21.0153378],
+    [52, 21.0157029],
+    [52, 21.0160681],
+    [52, 21.0164333],
+    [52, 21.0167985],
+    [52, 21.0171637],
+    [52, 21.0175289],
+    [52, 21.017894],
+    [52, 21.0182592],
+    [52, 21.0186244],
+    [52, 21.0189896],
+    [52, 21.0193548],
+    [52, 21.01972],
+    [52, 21.0200852],
+    [52, 21.0204503],
+    [52, 21.0208155],
+    [52, 21.0211807],
+    [52, 21.0215459],
+    [52, 21.0219111],
+    [52, 21.0222763],
+    [52, 21.0226414],
+    [52, 21.0230066],
+    [52, 21.0233718],
+    [52, 21.023737],
+    [52, 21.0241022],
+    [52, 21.0244674],
+    [52, 21.0248326],
+    [52, 21.0251977],
+    [52, 21.0255629],
+    [52, 21.0259281],
+    [52, 21.0262933],
+    [52, 21.0266585],
+    [52, 21.0270237],
+    [52, 21.0273888],
+    [52, 21.027754],
+    [52, 21.0281192],
+    [52, 21.0284844],
+    [52, 21.0288496]
+  ],
+  "points": [
+    {
+      "id": "punkt-1",
+      "progressM": 300,
+      "priority": 1,
+      "title": "Punkt demonstracyjny 1 (ton 440 Hz)",
+      "audio": "audio/ton-1.wav",
+      "themes": [
+        "demo-spacer"
+      ],
+      "sources": [
+        {
+          "institution": "Instytucja przykładowa (dane demonstracyjne)",
+          "url": "https://example.org/navistories-demo/zrodlo-1"
+        },
+        {
+          "institution": "Archiwum przykładowe (dane demonstracyjne)",
+          "url": "https://example.org/navistories-demo/archiwum-1"
+        }
+      ]
+    },
+    {
+      "id": "punkt-2",
+      "progressM": 1000,
+      "priority": 1,
+      "title": "Punkt demonstracyjny 2 (ton 554 Hz)",
+      "audio": "audio/ton-2.wav",
+      "themes": [
+        "demo-spacer"
+      ],
+      "sources": [
+        {
+          "institution": "Instytucja przykładowa (dane demonstracyjne)",
+          "url": "https://example.org/navistories-demo/zrodlo-2"
+        },
+        {
+          "institution": "Archiwum przykładowe (dane demonstracyjne)",
+          "url": "https://example.org/navistories-demo/archiwum-2"
+        }
+      ]
+    },
+    {
+      "id": "punkt-3",
+      "progressM": 1700,
+      "priority": 1,
+      "title": "Punkt demonstracyjny 3 (ton 659 Hz)",
+      "audio": "audio/ton-3.wav",
+      "themes": [
+        "demo-spacer"
+      ],
+      "sources": [
+        {
+          "institution": "Instytucja przykładowa (dane demonstracyjne)",
+          "url": "https://example.org/navistories-demo/zrodlo-3"
+        },
+        {
+          "institution": "Archiwum przykładowe (dane demonstracyjne)",
+          "url": "https://example.org/navistories-demo/archiwum-3"
+        }
+      ]
+    }
+  ]
+}
