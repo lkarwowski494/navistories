@@ -18,7 +18,7 @@ Aplikacja dokłada tylko ekrany i implementacje interfejsów na expo-location
 | `/ujawnienie-ai` | treść i głos są generowane przez AI; potwierdzenie zapisane w AsyncStorage |
 | `/spacer` | motyw, długość (ok. 30/60/90 min), lista gotowych spacerów |
 | `/samochod` | trasa (pakiet) i filtr motywów |
-| `/sesja?pakiet=…&motywy=…` | start przyciskiem; w ruchu tylko stan (gra / w kolejce / poza trasą), Pauza/Graj, Następna, Zakończ |
+| `/sesja?pakiet=…&motywy=…` | start przyciskiem; w ruchu tylko stan (gra / w kolejce / poza trasą), Pauza/Graj, Następna, Zakończ; stały mały napis o AI według `aiGenerated` pakietu (bez napisu, gdy pakiet nie deklaruje AI) |
 | `/zrodla?pakiet=…&punkt=…` | źródła historii: instytucje i adresy, oznaczenie AI |
 
 Bezpieczeństwo kierowcy: w samochodzie przycisk „Źródła” nie pojawia się w

@@ -2,7 +2,7 @@ import { useLocalSearchParams } from "expo-router";
 import { Linking, Pressable, Text, View } from "react-native";
 import { useAplikacja } from "../stan/aplikacja";
 import { t } from "../teksty";
-import { Akapit, Ekran, kolory, Naglowek, styl } from "./ui";
+import { Akapit, Ekran, kolory, Naglowek, styl, wariantAI } from "./ui";
 
 /** Źródła historii: instytucje i adresy (wyróżnik produktu) oraz oznaczenie AI. */
 export function EkranZrodel() {
@@ -19,8 +19,7 @@ export function EkranZrodel() {
     );
   }
 
-  const { text, voice } = pakiet.aiGenerated;
-  const ai = text && voice ? t.zrodla.ai : text ? t.zrodla.aiTekst : voice ? t.zrodla.aiGlos : null;
+  const ai = { tekstIGlos: t.zrodla.ai, tekst: t.zrodla.aiTekst, glos: t.zrodla.aiGlos, brak: null }[wariantAI(pakiet.aiGenerated) ?? "brak"];
 
   return (
     <Ekran>

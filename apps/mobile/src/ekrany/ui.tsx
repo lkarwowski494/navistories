@@ -71,6 +71,20 @@ export function Przycisk({
   );
 }
 
+/** Który wariant oznaczenia AI pokazać według deklaracji pakietu (null: pakiet nie deklaruje AI). */
+export function wariantAI(ai: { text: boolean; voice: boolean }): "tekstIGlos" | "tekst" | "glos" | null {
+  return ai.text && ai.voice ? "tekstIGlos" : ai.text ? "tekst" : ai.voice ? "glos" : null;
+}
+
+/** Mały, statyczny napis (nie przycisk, bez animacji) czytany przez czytnik ekranu. */
+export function Oznaczenie({ tekst, testID }: { tekst: string; testID?: string }) {
+  return (
+    <Text style={styl.oznaczenie} accessibilityRole="text" accessibilityLabel={tekst} testID={testID}>
+      {tekst}
+    </Text>
+  );
+}
+
 /** Pozycja do wyboru (przełącznik albo jedna z wielu). */
 export function Wybor({ tytul, wybrany, onPress, wielokrotny }: { tytul: string; wybrany: boolean; onPress: () => void; wielokrotny?: boolean }) {
   return (
@@ -107,4 +121,5 @@ export const styl = StyleSheet.create({
   wyborTekst: { fontSize: 17, color: kolory.tekst },
   rzad: { flexDirection: "row", gap: 12 },
   rzadElement: { flex: 1 },
+  oznaczenie: { fontSize: 13, lineHeight: 18, color: kolory.drugorzedny, textAlign: "center" },
 });

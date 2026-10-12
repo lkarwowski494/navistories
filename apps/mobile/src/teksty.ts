@@ -67,6 +67,13 @@ export const pl = {
     brakZagranych: "Żadna historia nie została odtworzona.",
     nowa: "Nowa podróż",
     brakPakietu: "Nie znaleziono trasy.",
+    // Stałe oznaczenie AI na ekranie odtwarzania (decyzja właściciela 12.10.2026); wariant według aiGenerated pakietu.
+    // Brzmienie za zaakceptowanym ujawnieniem (`ujawnienie.tresc`) i oznaczeniem w `zrodla`.
+    ai: {
+      tekstIGlos: "Tekst i głos wygenerowane z pomocą AI. Fakty sprawdzone w źródłach.",
+      tekst: "Tekst wygenerowany z pomocą AI. Fakty sprawdzone w źródłach.",
+      glos: "Głos wygenerowany przez AI. Fakty sprawdzone w źródłach.",
+    },
   },
 
   lokalizacjaWTle: {

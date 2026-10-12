@@ -62,10 +62,15 @@ export const zegarTestowy: Clock = {
   clearTimeout: () => undefined,
 };
 
-export function atrapy(opts: { potwierdzone?: boolean } = {}) {
+/** Pakiety demo z podmienioną deklaracją AI (pakiety demo deklarują brak AI: tony syntetyczne). */
+function demoZAI(aiGenerated: { text: boolean; voice: boolean }) {
+  return DEMO.map((s) => ({ ...s, json: { ...(s.json as object), aiGenerated } }));
+}
+
+export function atrapy(opts: { potwierdzone?: boolean; aiGenerated?: { text: boolean; voice: boolean } } = {}) {
   const lokalizacje: AtrapaLokalizacji[] = [];
   const odtwarzacze: AtrapaOdtwarzacza[] = [];
-  const katalog = zbudujKatalog(DEMO);
+  const katalog = zbudujKatalog(opts.aiGenerated ? demoZAI(opts.aiGenerated) : DEMO);
   const ustawienia = new AtrapaUstawien(opts.potwierdzone ?? true);
   const zaleznosci: Zaleznosci = {
     katalog,

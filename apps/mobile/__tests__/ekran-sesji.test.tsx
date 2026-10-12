@@ -31,8 +31,8 @@ async function dojedz(a: A, pakietId: string, progressM: number[], speedMps: num
   }
 }
 
-async function wystartuj(pakiet: string, motywy?: string) {
-  const a = atrapy();
+async function wystartuj(pakiet: string, motywy?: string, aiGenerated?: { text: boolean; voice: boolean }) {
+  const a = atrapy({ aiGenerated });
   mockParams.current = { pakiet, ...(motywy ? { motywy } : {}) };
   await render(<EkranSesji />, { wrapper: a.Owijka });
   return a;
@@ -144,5 +144,57 @@ describe("ekran jazdy: źródła", () => {
     mockParams.current = { pakiet: "demo-spacer", punkt: "nie-ma" };
     await render(<EkranZrodel />, { wrapper: a.Owijka });
     expect(screen.getByText("Nie znaleziono historii.")).toBeOnTheScreen();
+  });
+});
+
+describe("ekran jazdy: stałe oznaczenie AI (decyzja właściciela 12.10.2026)", () => {
+  const TEKST_I_GLOS = "Tekst i głos wygenerowane z pomocą AI. Fakty sprawdzone w źródłach.";
+  const TYLKO_TEKST = "Tekst wygenerowany z pomocą AI. Fakty sprawdzone w źródłach.";
+  const TYLKO_GLOS = "Głos wygenerowany przez AI. Fakty sprawdzone w źródłach.";
+
+  function oznaczenie() {
+    return screen.getByTestId("oznaczenie-ai");
+  }
+
+  it("tekst i głos z AI: napis przed startem, w trakcie i po zakończeniu; dostępny, nie przycisk", async () => {
+    const a = await wystartuj("demo-samochod", undefined, { text: true, voice: true });
+    expect(oznaczenie()).toHaveTextContent(TEKST_I_GLOS);
+    expect(oznaczenie().props.accessibilityRole).toBe("text");
+    expect(oznaczenie().props.accessibilityLabel).toBe(TEKST_I_GLOS);
+
+    await fireEvent.press(screen.getByRole("button", { name: "Start" }));
+    await dojedz(a, "demo-samochod", [0, 100, 200, 300, 400, 450], 10);
+    expect(screen.getByTestId("stan-sesji")).toHaveTextContent("Gra");
+    expect(oznaczenie()).toHaveTextContent(TEKST_I_GLOS);
+    // nie jest przyciskiem: w ruchu nadal tylko trzy przyciski
+    expect(screen.getAllByRole("button").map((b) => b.props.accessibilityLabel)).toEqual(["Pauza", "Następna", "Zakończ"]);
+
+    await fireEvent.press(screen.getByRole("button", { name: "Zakończ" }));
+    expect(oznaczenie()).toHaveTextContent(TEKST_I_GLOS);
+  });
+
+  it("spacer: ten sam napis w trakcie", async () => {
+    const a = await wystartuj("demo-spacer", undefined, { text: true, voice: true });
+    await fireEvent.press(screen.getByRole("button", { name: "Start" }));
+    await dojedz(a, "demo-spacer", [0, 15, 30], 1.4);
+    expect(oznaczenie()).toHaveTextContent(TEKST_I_GLOS);
+  });
+
+  it("pakiet deklaruje tylko tekst z AI", async () => {
+    await wystartuj("demo-samochod", undefined, { text: true, voice: false });
+    expect(oznaczenie()).toHaveTextContent(TYLKO_TEKST);
+    expect(oznaczenie().props.accessibilityLabel).toBe(TYLKO_TEKST);
+  });
+
+  it("pakiet deklaruje tylko głos z AI", async () => {
+    await wystartuj("demo-samochod", undefined, { text: false, voice: true });
+    expect(oznaczenie()).toHaveTextContent(TYLKO_GLOS);
+    expect(oznaczenie().props.accessibilityLabel).toBe(TYLKO_GLOS);
+  });
+
+  it("pakiet demo (syntetyczne tony, aiGenerated: false/false): bez napisu, bo nie byłby prawdziwy", async () => {
+    const a = await wystartuj("demo-samochod");
+    expect(a.katalog.pakiet("demo-samochod")!.aiGenerated).toEqual({ text: false, voice: false });
+    expect(screen.queryByTestId("oznaczenie-ai")).toBeNull();
   });
 });

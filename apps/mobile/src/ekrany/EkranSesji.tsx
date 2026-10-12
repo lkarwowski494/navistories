@@ -3,13 +3,15 @@ import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 import { useAplikacja, useSessionView, type AktywnaSesja } from "../stan/aplikacja";
 import { t } from "../teksty";
-import { Akapit, Ekran, kolory, Naglowek, Przycisk, styl } from "./ui";
+import { Akapit, Ekran, kolory, Naglowek, Oznaczenie, Przycisk, styl, wariantAI } from "./ui";
 
 /**
  * Ekran jazdy / spaceru. Start tylko przyciskiem. W ruchu: stan (gra / w
  * kolejce / poza trasą), play/pauza, następna i nic więcej (bezpieczeństwo
  * kierowcy). „Źródła” bieżącej historii: w trakcie spaceru od razu, w
  * samochodzie po zakończeniu podróży (lista wysłuchanych historii).
+ * Oznaczenie AI (według `aiGenerated` pakietu) jest stale widoczne: przed
+ * startem, w trakcie i po zakończeniu.
  */
 export function EkranSesji() {
   const { pakiet: pakietId, motywy } = useLocalSearchParams<{ pakiet?: string; motywy?: string }>();
@@ -36,6 +38,8 @@ function Sesja({ aktywna }: { aktywna: AktywnaSesja }) {
   const { zakoncz } = useAplikacja();
   const { session, pakiet } = aktywna;
   const v = useSessionView(session);
+  const wariant = wariantAI(pakiet.aiGenerated);
+  const oznaczenieAI = wariant ? <Oznaczenie tekst={t.sesja.ai[wariant]} testID="oznaczenie-ai" /> : null;
 
   const pokazZrodla = (punkt: string) => router.push({ pathname: "/zrodla", params: { pakiet: pakiet.id, punkt } });
   const nowa = () => {
@@ -49,6 +53,7 @@ function Sesja({ aktywna }: { aktywna: AktywnaSesja }) {
         <Naglowek>{pakiet.title}</Naglowek>
         <Akapit drugorzedny>{t.sesja.startOpis}</Akapit>
         <Przycisk duzy tytul={t.sesja.start} wylaczony={v.phase === "starting"} onPress={() => void session.start()} />
+        {oznaczenieAI}
       </Ekran>
     );
   }
@@ -75,6 +80,7 @@ function Sesja({ aktywna }: { aktywna: AktywnaSesja }) {
           <Przycisk key={p.id} drugorzedny tytul={p.title} opis={t.sesja.zrodla} onPress={() => pokazZrodla(p.id)} />
         ))}
         <Przycisk tytul={t.sesja.nowa} onPress={nowa} />
+        {oznaczenieAI}
       </Ekran>
     );
   }
@@ -108,6 +114,7 @@ function Sesja({ aktywna }: { aktywna: AktywnaSesja }) {
         <Przycisk drugorzedny tytul={t.sesja.zrodla} onPress={() => pokazZrodla(v.current!.id)} />
       ) : null}
       <Przycisk drugorzedny tytul={t.sesja.stop} onPress={() => session.stop()} />
+      {oznaczenieAI}
     </Ekran>
   );
 }
