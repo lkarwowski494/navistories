@@ -26,6 +26,7 @@ export function EkranStartowy() {
       <Naglowek>{t.start.pytanie}</Naglowek>
       <Przycisk duzy tytul={t.start.samochod} opis={t.start.samochodOpis} onPress={() => router.push("/samochod")} />
       <Przycisk duzy tytul={t.start.spacer} opis={t.start.spacerOpis} onPress={() => router.push("/spacer")} />
+      <Przycisk drugorzedny tytul={t.start.oAplikacji} onPress={() => router.push("/o-aplikacji")} />
     </Ekran>
   );
 }

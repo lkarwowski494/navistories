@@ -19,6 +19,7 @@ export default function Layout() {
           <Stack.Screen name="samochod" options={{ title: t.samochod.tytul }} />
           <Stack.Screen name="sesja" options={{ title: t.aplikacja }} />
           <Stack.Screen name="zrodla" options={{ title: t.zrodla.tytul }} />
+          <Stack.Screen name="o-aplikacji" options={{ title: t.oAplikacji.tytul }} />
         </Stack>
       </AplikacjaProvider>
     </SafeAreaProvider>

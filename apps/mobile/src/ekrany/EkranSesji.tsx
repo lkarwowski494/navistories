@@ -39,7 +39,7 @@ function Sesja({ aktywna }: { aktywna: AktywnaSesja }) {
   const { session, pakiet } = aktywna;
   const v = useSessionView(session);
   const wariant = wariantAI(pakiet.aiGenerated);
-  const oznaczenieAI = wariant ? <Oznaczenie tekst={t.sesja.ai[wariant]} testID="oznaczenie-ai" /> : null;
+  const oznaczenieAI = wariant ? <Oznaczenie tekst={t.sesja.ai[wariant]} etykieta={t.sesja.aiCzytnik[wariant]} testID="oznaczenie-ai" /> : null;
 
   const pokazZrodla = (punkt: string) => router.push({ pathname: "/zrodla", params: { pakiet: pakiet.id, punkt } });
   const nowa = () => {

@@ -25,6 +25,20 @@ describe("ekran startowy", () => {
     await fireEvent.press(screen.getByRole("button", { name: "Pieszo" }));
     expect(mockRouter.push).toHaveBeenCalledWith("/spacer");
   });
+
+  it("prowadzi do ekranu „O aplikacji”", async () => {
+    const { Owijka } = atrapy();
+    await render(<EkranStartowy />, { wrapper: Owijka });
+    await fireEvent.press(await screen.findByRole("button", { name: "O aplikacji" }));
+    expect(mockRouter.push).toHaveBeenCalledWith("/o-aplikacji");
+  });
+
+  it("po potwierdzeniu ujawnienia AI nie pokazuje go ponownie", async () => {
+    const { Owijka } = atrapy({ potwierdzone: true });
+    await render(<EkranStartowy />, { wrapper: Owijka });
+    expect(await screen.findByRole("button", { name: "Samochodem" })).toBeOnTheScreen();
+    expect(screen.queryByText("przekierowanie:/ujawnienie-ai")).toBeNull();
+  });
 });
 
 describe("ujawnienie AI", () => {

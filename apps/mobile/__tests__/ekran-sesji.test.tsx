@@ -151,6 +151,10 @@ describe("ekran jazdy: stałe oznaczenie AI (decyzja właściciela 12.10.2026)",
   const TEKST_I_GLOS = "Tekst i głos wygenerowane z pomocą AI. Fakty sprawdzone w źródłach.";
   const TYLKO_TEKST = "Tekst wygenerowany z pomocą AI. Fakty sprawdzone w źródłach.";
   const TYLKO_GLOS = "Głos wygenerowany przez AI. Fakty sprawdzone w źródłach.";
+  // Czytnik ekranu: pełne zdanie, „sztuczna inteligencja” zamiast skrótu „AI”.
+  const CZYTNIK_TEKST_I_GLOS = "Tekst i głos wygenerowane z pomocą sztucznej inteligencji. Fakty sprawdzone w źródłach.";
+  const CZYTNIK_TYLKO_TEKST = "Tekst wygenerowany z pomocą sztucznej inteligencji. Fakty sprawdzone w źródłach.";
+  const CZYTNIK_TYLKO_GLOS = "Głos wygenerowany przez sztuczną inteligencję. Fakty sprawdzone w źródłach.";
 
   function oznaczenie() {
     return screen.getByTestId("oznaczenie-ai");
@@ -160,7 +164,8 @@ describe("ekran jazdy: stałe oznaczenie AI (decyzja właściciela 12.10.2026)",
     const a = await wystartuj("demo-samochod", undefined, { text: true, voice: true });
     expect(oznaczenie()).toHaveTextContent(TEKST_I_GLOS);
     expect(oznaczenie().props.accessibilityRole).toBe("text");
-    expect(oznaczenie().props.accessibilityLabel).toBe(TEKST_I_GLOS);
+    expect(oznaczenie().props.accessibilityLabel).toBe(CZYTNIK_TEKST_I_GLOS);
+    expect(screen.getByLabelText(CZYTNIK_TEKST_I_GLOS)).toBe(oznaczenie());
 
     await fireEvent.press(screen.getByRole("button", { name: "Start" }));
     await dojedz(a, "demo-samochod", [0, 100, 200, 300, 400, 450], 10);
@@ -183,13 +188,13 @@ describe("ekran jazdy: stałe oznaczenie AI (decyzja właściciela 12.10.2026)",
   it("pakiet deklaruje tylko tekst z AI", async () => {
     await wystartuj("demo-samochod", undefined, { text: true, voice: false });
     expect(oznaczenie()).toHaveTextContent(TYLKO_TEKST);
-    expect(oznaczenie().props.accessibilityLabel).toBe(TYLKO_TEKST);
+    expect(oznaczenie().props.accessibilityLabel).toBe(CZYTNIK_TYLKO_TEKST);
   });
 
   it("pakiet deklaruje tylko głos z AI", async () => {
     await wystartuj("demo-samochod", undefined, { text: false, voice: true });
     expect(oznaczenie()).toHaveTextContent(TYLKO_GLOS);
-    expect(oznaczenie().props.accessibilityLabel).toBe(TYLKO_GLOS);
+    expect(oznaczenie().props.accessibilityLabel).toBe(CZYTNIK_TYLKO_GLOS);
   });
 
   it("pakiet demo (syntetyczne tony, aiGenerated: false/false): bez napisu, bo nie byłby prawdziwy", async () => {

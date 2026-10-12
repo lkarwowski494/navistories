@@ -19,6 +19,23 @@ export const pl = {
     samochodOpis: "Historie o miejscach mijanych na trasie",
     spacer: "Pieszo",
     spacerOpis: "Spacer z historiami po okolicy",
+    oAplikacji: "O aplikacji",
+  },
+
+  // Ekran „O aplikacji” (decyzja właściciela 12.10.2026; ujawnianie AI wg AI Act art. 50).
+  oAplikacji: {
+    tytul: "O aplikacji",
+    redakcjaNaglowek: "Redakcja",
+    redakcja: (osoba: string) => `Za treści historii redakcyjnie odpowiada ${osoba}.`,
+    kontakt: (adres: string) => `Kontakt z redakcją: ${adres}`,
+    kontaktBrak: "Kontakt z redakcją zostanie uzupełniony.",
+    procesNaglowek: "Jak powstają historie",
+    proces:
+      "Teksty historii są przygotowywane z pomocą sztucznej inteligencji (AI). " +
+      "Fakty sprawdza człowiek względem źródeł, które podajemy przy każdej historii. " +
+      "Głos lektora jest wygenerowany przez AI.",
+    mapyNaglowek: "Dane map",
+    mapy: "Dane tras: © OpenStreetMap contributors, licencja ODbL.",
   },
 
   spacer: {
@@ -73,6 +90,12 @@ export const pl = {
       tekstIGlos: "Tekst i głos wygenerowane z pomocą AI. Fakty sprawdzone w źródłach.",
       tekst: "Tekst wygenerowany z pomocą AI. Fakty sprawdzone w źródłach.",
       glos: "Głos wygenerowany przez AI. Fakty sprawdzone w źródłach.",
+    },
+    // To samo dla czytnika ekranu (VoiceOver/TalkBack): pełne słowa zamiast skrótu „AI”.
+    aiCzytnik: {
+      tekstIGlos: "Tekst i głos wygenerowane z pomocą sztucznej inteligencji. Fakty sprawdzone w źródłach.",
+      tekst: "Tekst wygenerowany z pomocą sztucznej inteligencji. Fakty sprawdzone w źródłach.",
+      glos: "Głos wygenerowany przez sztuczną inteligencję. Fakty sprawdzone w źródłach.",
     },
   },
 

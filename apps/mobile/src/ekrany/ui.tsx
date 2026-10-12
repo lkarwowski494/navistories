@@ -76,10 +76,14 @@ export function wariantAI(ai: { text: boolean; voice: boolean }): "tekstIGlos" |
   return ai.text && ai.voice ? "tekstIGlos" : ai.text ? "tekst" : ai.voice ? "glos" : null;
 }
 
-/** Mały, statyczny napis (nie przycisk, bez animacji) czytany przez czytnik ekranu. */
-export function Oznaczenie({ tekst, testID }: { tekst: string; testID?: string }) {
+/**
+ * Mały, statyczny napis (nie przycisk, bez animacji) czytany przez czytnik ekranu.
+ * `etykieta`: pełne zdanie dla VoiceOver/TalkBack (np. bez skrótów); domyślnie `tekst`.
+ * Kolor `drugorzedny` na `tlo`: kontrast ok. 7,5:1 (WCAG AA dla małego tekstu: 4,5:1; test w ui.test.tsx).
+ */
+export function Oznaczenie({ tekst, etykieta, testID }: { tekst: string; etykieta?: string; testID?: string }) {
   return (
-    <Text style={styl.oznaczenie} accessibilityRole="text" accessibilityLabel={tekst} testID={testID}>
+    <Text style={styl.oznaczenie} accessibilityRole="text" accessibilityLabel={etykieta ?? tekst} testID={testID}>
       {tekst}
     </Text>
   );
