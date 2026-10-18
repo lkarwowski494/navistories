@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kierunki NaviStories</title>
+<style>
+:root { --tlo: #F4F4F3; --karta: #FFFFFF; --tekst: #1B1C1E; --tekst-2: #5A5F66; --linia: #D5D7DA; --akcent: #1B1C1E; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --tlo: #141516; --karta: #1E2022; --tekst: #ECEBE8; --tekst-2: #A6AAB0; --linia: #33363A; --akcent: #ECEBE8; } }
+:root[data-theme="dark"] { --tlo: #141516; --karta: #1E2022; --tekst: #ECEBE8; --tekst-2: #A6AAB0; --linia: #33363A; --akcent: #ECEBE8; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--tlo); color: var(--tekst); font: 16px/1.45 -apple-system, system-ui, "Segoe UI", sans-serif; }
+main { max-width: 1500px; margin: 0 auto; padding: 24px 16px 48px; }
+h1 { font-size: 1.75rem; margin: 0 0 4px; }
+.lead { color: var(--tekst-2); margin: 0 0 16px; max-width: 70ch; }
+.przel { display: inline-flex; gap: 0; border: 1px solid var(--linia); border-radius: 8px; overflow: hidden; margin-bottom: 18px; }
+.przel label { padding: 10px 16px; min-height: 44px; display: flex; align-items: center; cursor: pointer; }
+.przel input { position: absolute; opacity: 0; }
+#m-jasny:checked ~ .przel label[for="m-jasny"], #m-ciemny:checked ~ .przel label[for="m-ciemny"] { font-weight: 700; background: var(--akcent); color: var(--tlo); }
+.siatka { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 20px; }
+.kier { background: var(--karta); border: 1px solid var(--linia); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.kier h2 { margin: 0; font-size: 1.375rem; }
+.kier .idea { margin: 0; font-size: 1.0625rem; }
+.kier img { width: 100%; height: auto; display: block; border-radius: 6px; }
+.kier dl { margin: 0; display: grid; grid-template-columns: 8.5rem 1fr; gap: 6px 10px; font-size: .9375rem; }
+.kier dt { color: var(--tekst-2); }
+.kier dd { margin: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chips span { display: inline-flex; align-items: center; gap: 6px; font-size: .8125rem; border: 1px solid var(--linia); border-radius: 6px; padding: 3px 7px 3px 3px; }
+.chips i { width: 18px; height: 18px; border-radius: 4px; background: var(--c); border: 1px solid #0003; }
+.kier img.ciemne { display: none; }
+#m-ciemny:checked ~ .siatka .kier img.jasne { display: none; }
+#m-ciemny:checked ~ .siatka .kier img.ciemne { display: block; }
+.kier img.ik { width: 62%; }
+.rek { margin-top: 24px; background: var(--karta); border: 2px solid var(--akcent); border-radius: 10px; padding: 18px; max-width: 900px; }
+.rek h2 { margin: 0 0 8px; font-size: 1.25rem; }
+.rek p, .rek li { margin: 0 0 8px; }
+.uwaga { color: var(--tekst-2); font-size: .875rem; }
+table { border-collapse: collapse; width: 100%; font-size: .9375rem; margin: 8px 0 12px; }
+th, td { border-bottom: 1px solid var(--linia); padding: 6px 8px; text-align: left; vertical-align: top; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Trzy kierunki na tym samym ekranie</h1>
+  <p class="lead">Ekran: sesja samochodowa w trakcie opowieści. Po lewej w każdej parze widok w ruchu (kierowca, spec. P4: najwyżej duży przycisk pauzy), po prawej widok na postoju lub dla pasażera. Treść próbna z trasy Warszawa – Zamość; fakty o miejscach niezweryfikowane.</p>
+
+  <input type="radio" name="m" id="m-jasny" checked hidden>
+  <input type="radio" name="m" id="m-ciemny" hidden>
+  <div class="przel" role="radiogroup" aria-label="Motyw makiet">
+    <label for="m-jasny"><span>Motyw jasny</span></label>
+    <label for="m-ciemny"><span>Motyw ciemny (noc)</span></label>
+  </div>
+
+  <div class="siatka">
+    <section class="kier">
+      <h2>A. Drogowskaz</h2>
+      <p class="idea">Każda opowieść to brązowy drogowskaz turystyczny do miejsca, o którym słuchasz.</p>
+      <img class="jasne" src="porownanie-img/drogowskaz-light.png" alt="Kierunek Drogowskaz, motyw jasny: biała tablica z brązowym obrzeżem, sylwetka pałacu i duży brązowy przycisk pauzy">
+      <img class="ciemne" src="porownanie-img/drogowskaz-dark.png" alt="Kierunek Drogowskaz, motyw ciemny: tablica na asfalcie, jasnobrązowe obrzeże">
+      <img class="ik" src="porownanie-img/drogowskaz-ikony.png" alt="Ikona Drogowskaz w trzech rozmiarach, jasna i ciemna">
+      <dl>
+        <dt>Element firmowy</dt><dd>Tablica: sylwetka typu obiektu, odległość i strona drogi, postęp na dolnym obrzeżu.</dd>
+        <dt>Autorytet</dt><dd>Brąz i siatka liter z Dz.U. 2019 poz. 2311 (tab. 1.3, pkt 1.4.1, 6.3.4.1, 6.3.13.2).</dd>
+        <dt>Kierowca widzi</dt><dd>Co to za miejsce (sylwetka) i ile zostało (pasek) bez czytania.</dd>
+        <dt>Ryzyko</dt><dd>Koszt sylwetek (typologia ok. 10–15 znaków zamiast rysunku każdego obiektu); naśladowanie znaku urzędowego [DO USTALENIA] prawnie.</dd>
+      </dl>
+      <div class="chips"><span><i style="--c:#FFFFFF"></i>Lico</span><span><i style="--c:#6B3815"></i>Brąz</span><span><i style="--c:#26282B"></i>Asfalt</span><span><i style="--c:#D9A877"></i>Brąz nocny</span><span><i style="--c:#B20013"></i>Ostrzeżenie</span></div>
+    </section>
+
+    <section class="kier">
+      <h2>B. Rejestr</h2>
+      <p class="idea">Opowieść jako wpis w rejestrze miejsc, z widocznym pochodzeniem informacji.</p>
+      <img class="jasne" src="porownanie-img/rejestr-light.png" alt="Kierunek Rejestr, motyw jasny: biała karta, pięciokątna tarczka wypełniana od ostrza, przycisk pauzy w środku">
+      <img class="ciemne" src="porownanie-img/rejestr-dark.png" alt="Kierunek Rejestr, motyw ciemny: grafitowa karta, jasnobłękitna tarczka">
+      <img class="ik" src="porownanie-img/rejestr-ikony.png" alt="Ikona Rejestr w trzech rozmiarach, jasna i ciemna">
+      <dl>
+        <dt>Element firmowy</dt><dd>Tarczka: wypełnienie = rodzaj treści (Fakty / Legenda / Bajka, spec. P16) i postęp.</dd>
+        <dt>Autorytet</dt><dd>Biel i błękit znaku zabytku (Dz.U. 2004 nr 30 poz. 259); wartość błękitu [DO USTALENIA].</dd>
+        <dt>Kierowca widzi</dt><dd>Rodzaj treści i postęp.</dd>
+        <dt>Ryzyko</dt><dd>Niebieska tarcza czyta się jak aplikacja „bezpieczeństwa” albo VPN; błękit to klisza kategorii (6 z 13 aplikacji).</dd>
+      </dl>
+      <div class="chips"><span><i style="--c:#FFFFFF"></i>Karta</span><span><i style="--c:#141A22"></i>Tusz</span><span><i style="--c:#1C4FA0"></i>Błękit</span><span><i style="--c:#8DB2F0"></i>Błękit nocny</span><span><i style="--c:#B3261E"></i>Ostrzeżenie</span></div>
+    </section>
+
+    <section class="kier">
+      <h2>C. Pasmo</h2>
+      <p class="idea">Trasa to pasmo radiowe, opowieści to stacje, auto to wskazówka.</p>
+      <img class="jasne" src="porownanie-img/pasmo-light.png" alt="Kierunek Pasmo, motyw jasny: aluminiowy panel, okrągła gałka pauzy, ciemna skala z pomarańczową wskazówką">
+      <img class="ciemne" src="porownanie-img/pasmo-dark.png" alt="Kierunek Pasmo, motyw ciemny: bursztynowa podziałka na czarnej szybie">
+      <img class="ik" src="porownanie-img/pasmo-ikony.png" alt="Ikona Pasmo w trzech rozmiarach, jasna i ciemna">
+      <dl>
+        <dt>Element firmowy</dt><dd>Skala: km trasy, stacje wysłuchane i przed nami, wskazówka = pozycja auta.</dd>
+        <dt>Autorytet</dt><dd>Brak; paleta z przedmiotu (radio samochodowe), decyzja studia.</dd>
+        <dt>Kierowca widzi</dt><dd>Gdzie jesteśmy na całej trasie (informacja, której kierowca nie potrzebuje w ruchu).</dd>
+        <dt>Ryzyko</dt><dd>Nocą „czarne + jeden jaskrawy akcent” z kalibracji; pokrewne linii z punktami (Organizer); kicz retro.</dd>
+      </dl>
+      <div class="chips"><span><i style="--c:#E4E6E8"></i>Panel</span><span><i style="--c:#121416"></i>Szyba</span><span><i style="--c:#E8590C"></i>Wskazówka</span><span><i style="--c:#FFB547"></i>Bursztyn</span><span><i style="--c:#B02323"></i>Ostrzeżenie</span></div>
+    </section>
+  </div>
+
+  <section class="rek">
+    <h2>Rekomendacja: A. Drogowskaz</h2>
+    <p>Powód funkcjonalny, nie gust: w ruchu kierowca ma zobaczyć jednym spojrzeniem „co gra”. Tylko w A element firmowy odpowiada na to bez tekstu (sylwetka typu obiektu), a barwa i proporcja liter pochodzą z przepisu, którego żadna z 13 sprawdzonych aplikacji nie używa. Biel z brązem ma najwyższy kontrast z trzech kierunków w obu motywach (9,5:1 i 7,5:1).</p>
+    <table>
+      <tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+      <tr><td>Odpowiada kierowcy „co gra” bez tekstu</td><td>tak (sylwetka)</td><td>częściowo (rodzaj treści)</td><td>nie (pozycja na trasie)</td></tr>
+      <tr><td>Źródło palety</td><td>przepis (szczebel 1)</td><td>przepis bez wartości barwy</td><td>brak</td></tr>
+      <tr><td>Kolizja z kliszą kategorii</td><td>brak</td><td>niebieski, tarcza</td><td>ciemne + akcent</td></tr>
+      <tr><td>Koszt wykonania</td><td>średni (typologia sylwetek)</td><td>niski</td><td>niski</td></tr>
+    </table>
+    <p>Możliwe połączenie: <b>A + kod rodzaju treści z B</b> (wypełnienie pełne / kreskowane / kontur w etykiecie „Fakty”), bo P16 wymaga tej etykiety w odtwarzaczu, a w A jest ona dziś tylko słowem.</p>
+    <p class="uwaga">Opcjonalnie: test pięciosekundowy z 5 kierowcami (ok. 1 h czasu właściciela): pokazać widok w ruchu na 5 s i zapytać „co teraz gra i co zrobisz, żeby zatrzymać?”. Wybór należy do właściciela i trafi dosłownie do docs/decyzje.md.</p>
+  </section>
+</main>
+</body>
+</html>

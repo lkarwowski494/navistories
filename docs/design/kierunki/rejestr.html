@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rejestr — kierunek B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,600;7..72,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --karta: #FFFFFF;     /* białe tło znaku zabytku, Dz.U. 2004 nr 30 poz. 259 § 2 */
+  --tusz: #141A22;
+  --tusz-2: #4A5563;
+  --blekit: #1C4FA0;    /* „błękitny” z § 2 — wartość przybliżona [DO USTALENIA] */
+  --blekit-jasny: #DCE6F6;
+  --tlo: #E9ECF0;
+  --linia: #C9D0D9;
+  --ostrz: #B3261E;
+  --ramka-tel: #0E0F10;
+  --strona: #F4F5F7;
+}
+[data-theme="dark"] {
+  --karta: #19202A;
+  --tusz: #E8ECF2;
+  --tusz-2: #A3AFBF;
+  --blekit: #8DB2F0;
+  --blekit-jasny: #253552;
+  --tlo: #10151C;
+  --linia: #2E3846;
+  --ostrz: #FF8A80;
+  --strona: #0B0E12;
+}
+* { box-sizing: border-box; }
+html { font-size: 16px; }
+body { margin: 0; background: var(--strona); color: var(--tusz); font-family: -apple-system, "SF Pro Text", system-ui, sans-serif; }
+.serif { font-family: "Literata", Georgia, serif; }
+.opis { padding: 1.25rem 1rem .5rem; max-width: 1240px; margin: 0 auto; }
+.opis h1 { font: 700 1.75rem/1.2 "Literata", serif; margin: 0 0 .25rem; }
+.opis p { margin: .25rem 0; font-size: 1rem; line-height: 1.4; }
+.opis .probka { color: var(--tusz-2); font-size: .875rem; }
+.uklad { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; padding: 8px 0 32px; max-width: 1240px; margin: 0 auto; }
+.kol { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+.podpis { font-size: .8125rem; color: var(--tusz-2); }
+
+.tel { width: min(390px, 100vw); min-height: 844px; background: var(--tlo); position: relative; display: flex; flex-direction: column; }
+@media (min-width: 500px) { .tel { border-radius: 44px; box-shadow: 0 0 0 10px var(--ramka-tel); margin: 10px; overflow: hidden; } }
+.status { height: 50px; display: flex; justify-content: space-between; align-items: flex-end; padding: 0 28px 6px; font: 600 .9375rem/1 -apple-system, system-ui, sans-serif; }
+.wn { flex: 1; display: flex; flex-direction: column; padding: 12px 16px 20px; gap: 14px; }
+.karta { background: var(--karta); border-radius: 2px; padding: 22px 18px; display: flex; flex-direction: column; gap: 12px; }
+.ai { text-align: center; font-size: .8125rem; line-height: 1.35; color: var(--tusz-2); margin: 0; }
+.steruj { text-align: center; font-size: 1.0625rem; color: var(--tusz-2); margin: 0; }
+
+/* sygnatura — element firmowy */
+.sygn { display: block; }
+.sygn .tlo-t { fill: var(--blekit-jasny); }
+.sygn .wyp { fill: var(--blekit); }
+.sygn .obrys { fill: none; stroke: var(--blekit); }
+.zrodla-kreski { display: flex; gap: 6px; justify-content: center; }
+.zrodla-kreski i { width: 22px; height: 6px; background: var(--tusz); border-radius: 1px; }
+
+/* w ruchu */
+.kierowca .karta { flex: 1; align-items: center; justify-content: center; gap: 20px; cursor: pointer; }
+.kierowca .sygn { width: 230px; height: auto; }
+.rodzaj { font: 600 1.5rem/1 "Literata", serif; display: flex; align-items: center; gap: 10px; }
+.rodzaj small { font: 400 1rem/1 -apple-system, system-ui, sans-serif; color: var(--tusz-2); }
+
+/* na postoju */
+.trasa { display: flex; justify-content: space-between; align-items: baseline; font-size: 1rem; color: var(--tusz-2); padding: 0 2px; }
+.trasa b { color: var(--tusz); font-weight: 600; }
+.wpis { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start; }
+.wpis > div { flex: 1 1 10rem; min-width: 0; overflow-wrap: anywhere; }
+.wpis .sygn { width: 76px; flex: none; }
+.wpis h2 { font: 600 1.875rem/1.15 "Literata", serif; margin: 0; }
+.nr { font: 500 1rem/1 "Literata", serif; color: var(--tusz-2); margin: 0 0 6px; }
+.meta { display: grid; grid-template-columns: auto 1fr; gap: 8px 14px; font-size: 1.0625rem; margin: 0; border-top: 1px solid var(--linia); padding-top: 12px; }
+.meta dt { color: var(--tusz-2); }
+.meta dd { margin: 0; font-variant-numeric: tabular-nums; }
+.pasek { height: 6px; background: var(--blekit-jasny); border-radius: 3px; overflow: hidden; }
+.pasek i { display: block; height: 100%; background: var(--blekit); }
+.przyciski { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px; }
+.btn { min-height: 56px; border-radius: 4px; border: 2px solid var(--tusz); background: var(--karta); color: var(--tusz); font: 600 1.125rem/1 -apple-system, system-ui, sans-serif; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.btn.gl { background: var(--tusz); color: var(--karta); }
+.btn svg { width: 20px; height: 20px; fill: currentColor; }
+.karta.nast { flex-direction: row; gap: 14px; align-items: center; padding: 14px 18px; }
+.nast .sygn { width: 34px; flex: none; }
+.nast b { display: block; font: 600 1.125rem/1.2 "Literata", serif; }
+.nast span { font-size: .9375rem; color: var(--tusz-2); }
+.zakoncz { min-height: 48px; border: none; background: none; color: var(--tusz); font-size: 1.0625rem; text-decoration: underline; text-underline-offset: 3px; }
+.spacer { flex: 1; }
+
+.panel { width: min(390px, 100vw); padding: 0 16px; display: flex; flex-direction: column; gap: 18px; }
+.panel h2 { font: 600 1.0625rem/1.2 "Literata", serif; margin: 0 0 8px; }
+.ikony { display: flex; gap: 14px; align-items: flex-end; padding: 14px; border-radius: 12px; }
+.ikony.jasne { background: #FFFFFF; } .ikony.ciemne { background: #000000; }
+.ikona { display: block; border-radius: 22.4%; overflow: hidden; }
+.kod { display: flex; gap: 18px; }
+.kod div { text-align: center; font-size: .9375rem; }
+.kod .sygn { width: 48px; margin: 0 auto 4px; }
+.paleta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-size: .75rem; }
+.paleta div { border-radius: 2px; padding: 34px 6px 6px; border: 1px solid #0002; background: var(--c); color: #111; }
+.paleta div span { background: #fffd; padding: 1px 3px; border-radius: 2px; }
+.glos p { margin: 0 0 6px; font-size: .9375rem; line-height: 1.35; }
+.glos em { color: var(--tusz-2); font-style: normal; font-size: .8125rem; display: block; }
+</style>
+</head>
+<body>
+<header class="opis">
+  <h1>B. Rejestr</h1>
+  <p>Opowieść jako wpis w rejestrze miejsc, z widocznym pochodzeniem każdej informacji.</p>
+  <p class="probka">Próbka: tytuł, odległość, czasy i liczba źródeł nie są zweryfikowane. Tarczka to własny kształt studia, nie urzędowy znak zabytku.</p>
+</header>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- pięciokąt ostrzem w dół; 100 x 120 -->
+    <path id="tarcza" d="M4 4 H96 V70 L50 116 L4 70 Z"/>
+    <clipPath id="klip"><path d="M4 4 H96 V70 L50 116 L4 70 Z"/></clipPath>
+    <pattern id="kreski" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="4" height="10" style="fill:var(--blekit)"/>
+    </pattern>
+  </defs>
+</svg>
+
+<div class="uklad">
+  <div class="kol">
+    <section class="tel kierowca" aria-label="Ekran w ruchu">
+      <div class="status"><span>14:27</span><span>●●● 5G ▮</span></div>
+      <div class="wn">
+        <div class="karta" role="button" aria-label="Pauza. Gra opowieść K10, fakty, trzy źródła">
+          <div class="rodzaj">Fakty</div>
+          <svg class="sygn" viewBox="0 0 100 120" aria-hidden="true">
+            <use href="#tarcza" class="tlo-t"/>
+            <!-- postęp 33 %: wypełnienie od ostrza w górę -->
+            <rect class="wyp" x="0" y="80" width="100" height="40" clip-path="url(#klip)"/>
+            <use href="#tarcza" class="obrys" stroke-width="5"/>
+            <circle cx="50" cy="48" r="24" style="fill:var(--karta)"/>
+            <g style="fill:var(--tusz)"><rect x="40" y="36" width="7" height="24" rx="1"/><rect x="53" y="36" width="7" height="24" rx="1"/></g>
+          </svg>
+        </div>
+        <p class="steruj">Następna i pomiń: przyciski na kierownicy</p>
+        <p class="ai">Tekst i głos wygenerowane z pomocą AI. Fakty sprawdzone w źródłach.</p>
+      </div>
+    </section>
+    <span class="podpis">W ruchu — kierowca (spec. P4)</span>
+  </div>
+
+  <div class="kol">
+    <section class="tel postoj" aria-label="Ekran na postoju">
+      <div class="status"><span>14:27</span><span>●●● 5G ▮</span></div>
+      <div class="wn">
+        <div class="trasa"><b>Warszawa – Zamość</b><span>wpis 10 z 18</span></div>
+        <div class="karta">
+          <div class="wpis">
+            <svg class="sygn" viewBox="0 0 100 120" aria-hidden="true">
+              <use href="#tarcza" class="tlo-t"/>
+              <rect class="wyp" x="0" y="80" width="100" height="40" clip-path="url(#klip)"/>
+              <use href="#tarcza" class="obrys" stroke-width="6"/>
+            </svg>
+            <div>
+              <p class="nr">K10</p>
+              <h2>Pałac w Kozłówce</h2>
+            </div>
+          </div>
+          <div class="pasek" aria-label="Odsłuchano 1:12 z 3:40"><i style="width:33%"></i></div>
+          <dl class="meta">
+            <dt>Rodzaj</dt><dd>Fakty</dd>
+            <dt>Czas</dt><dd>1:12 z 3:40</dd>
+            <dt>Źródła</dt><dd>3, lista po podróży</dd>
+            <dt>Miejsce</dt><dd>ok. 4 km od trasy</dd>
+          </dl>
+        </div>
+        <div class="przyciski">
+          <button class="btn gl"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="5" height="18" rx="1"/><rect x="14" y="3" width="5" height="18" rx="1"/></svg>Pauza</button>
+          <button class="btn"><svg viewBox="0 0 24 24"><polygon points="4,3 16,12 4,21"/><rect x="17" y="3" width="3" height="18"/></svg>Następna</button>
+        </div>
+        <div class="karta nast">
+          <svg class="sygn" viewBox="0 0 100 120" aria-hidden="true"><use href="#tarcza" class="obrys" stroke-width="8"/></svg>
+          <div><b>Lublin</b><span>następny wpis, za ok. 14 km</span></div>
+        </div>
+        <div class="spacer"></div>
+        <button class="zakoncz">Zakończ podróż</button>
+        <p class="ai">Tekst i głos wygenerowane z pomocą AI. Fakty sprawdzone w źródłach.</p>
+      </div>
+    </section>
+    <span class="podpis">Na postoju / pasażer</span>
+  </div>
+
+  <aside class="panel">
+    <div>
+      <h2>Ikona 180 · 60 · 29</h2>
+      <div class="ikony jasne">
+        <svg class="ikona" width="180" height="180" viewBox="0 0 100 100"><use href="#ik-j"/></svg>
+        <svg class="ikona" width="60" height="60" viewBox="0 0 100 100"><use href="#ik-j"/></svg>
+        <svg class="ikona" width="29" height="29" viewBox="0 0 100 100"><use href="#ik-j"/></svg>
+      </div>
+      <div class="ikony ciemne" style="margin-top:8px">
+        <svg class="ikona" width="180" height="180" viewBox="0 0 100 100"><use href="#ik-c"/></svg>
+        <svg class="ikona" width="60" height="60" viewBox="0 0 100 100"><use href="#ik-c"/></svg>
+        <svg class="ikona" width="29" height="29" viewBox="0 0 100 100"><use href="#ik-c"/></svg>
+      </div>
+    </div>
+    <div>
+      <h2>Kod sygnatury (spec. P16)</h2>
+      <div class="kod">
+        <div><svg class="sygn" viewBox="0 0 100 120"><use href="#tarcza" class="wyp"/><use href="#tarcza" class="obrys" stroke-width="6"/></svg>Fakty</div>
+        <div><svg class="sygn" viewBox="0 0 100 120"><use href="#tarcza" fill="url(#kreski)"/><use href="#tarcza" class="obrys" stroke-width="6"/></svg>Legenda</div>
+        <div><svg class="sygn" viewBox="0 0 100 120"><use href="#tarcza" class="obrys" stroke-width="6"/></svg>Bajka</div>
+      </div>
+      <p style="font-size:.875rem;margin:.5rem 0 0">Wypełnienie od ostrza w górę = postęp opowieści. Liczba źródeł szczebla 1–3: na karcie postoju.</p>
+    </div>
+    <div>
+      <h2>Kroje</h2>
+      <div class="serif" style="font-size:1.5rem;font-weight:600">Pałac w Kozłówce</div>
+      <div style="font-size:1rem">Treść: krój systemowy (SF Pro, Dynamic Type).</div>
+    </div>
+    <div>
+      <h2>Paleta</h2>
+      <div class="paleta">
+        <div style="--c:#FFFFFF"><span>Karta #FFFFFF</span></div>
+        <div style="--c:#141A22"><span>Tusz #141A22</span></div>
+        <div style="--c:#1C4FA0"><span>Błękit #1C4FA0</span></div>
+        <div style="--c:#8DB2F0"><span>Błękit nocny #8DB2F0</span></div>
+        <div style="--c:#10151C"><span>Grafit #10151C</span></div>
+        <div style="--c:#B3261E"><span>Ostrzeżenie #B3261E</span></div>
+      </div>
+    </div>
+    <div class="glos">
+      <h2>Głos</h2>
+      <p><em>Pusty stan</em>Rejestr tej podróży jest pusty. Pierwszy wpis przy pierwszym miejscu.</p>
+      <p><em>Błąd</em>Brak pozycji GPS. Wpisy wrócą po odzyskaniu sygnału.</p>
+      <p><em>Sukces</em>Wpisano 18 opowieści. Źródła każdej są w Wysłuchanych.</p>
+    </div>
+  </aside>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="ik-j">
+      <rect width="100" height="100" fill="#FFFFFF"/>
+      <path d="M26 16 H74 V58 L50 84 L26 58 Z" fill="#DCE6F6"/>
+      <path d="M26 52 H74 V58 L50 84 L26 58 Z" fill="#1C4FA0"/>
+      <path d="M26 16 H74 V58 L50 84 L26 58 Z" fill="none" stroke="#1C4FA0" stroke-width="5"/>
+    </g>
+    <g id="ik-c">
+      <rect width="100" height="100" fill="#10151C"/>
+      <path d="M26 16 H74 V58 L50 84 L26 58 Z" fill="#253552"/>
+      <path d="M26 52 H74 V58 L50 84 L26 58 Z" fill="#8DB2F0"/>
+      <path d="M26 16 H74 V58 L50 84 L26 58 Z" fill="none" stroke="#8DB2F0" stroke-width="5"/>
+    </g>
+  </defs>
+</svg>
+</body>
+</html>

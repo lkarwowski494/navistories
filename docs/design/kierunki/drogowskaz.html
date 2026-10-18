@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drogowskaz — kierunek A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --lico: #FFFFFF;          /* tło drogowskazów E-7…E-12 */
+  --braz: #6B3815;          /* brąz drogowskazu, tab. 1.3 Dz.U. 2019 poz. 2311 (rachunek, Y 0,06) */
+  --braz-tlo: #F3ECE6;      /* jasny brąz pod paskiem postępu */
+  --tekst: #1D1F21;
+  --tekst-2: #5E6266;
+  --tlo: #ECEDEE;           /* jezdnia w dzień: jasny szary */
+  --ostrz: #B20013;         /* czerwień, tab. 1.3, Y 0,08 — tylko ostrzeżenia */
+  --ramka-tel: #0E0F10;
+  --strona: #F6F6F5;
+}
+[data-theme="dark"] {
+  --lico: #1F2124;
+  --braz: #D9A877;
+  --braz-tlo: #3A2E25;
+  --tekst: #F1EEEA;
+  --tekst-2: #A9ADB2;
+  --tlo: #26282B;
+  --ostrz: #FF8A80;
+  --strona: #151617;
+}
+* { box-sizing: border-box; }
+html { font-size: 16px; }
+body { margin: 0; background: var(--strona); color: var(--tekst); font-family: -apple-system, "SF Pro Text", system-ui, sans-serif; }
+.opis { padding: 1.25rem 1rem .5rem; max-width: 1240px; margin: 0 auto; }
+.opis h1 { font-family: "Public Sans", sans-serif; font-weight: 800; font-size: 1.75rem; margin: 0 0 .25rem; color: var(--braz); }
+.opis p { margin: .25rem 0; font-size: 1rem; line-height: 1.4; }
+.opis .probka { color: var(--tekst-2); font-size: .875rem; }
+.uklad { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; padding: 8px 0 32px; max-width: 1240px; margin: 0 auto; }
+.kol { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+.podpis { font-size: .8125rem; color: var(--tekst-2); }
+
+/* --- telefon --- */
+.tel { width: min(390px, 100vw); min-height: 844px; background: var(--tlo); position: relative; display: flex; flex-direction: column; border-radius: 0; }
+@media (min-width: 500px) { .tel { border-radius: 44px; box-shadow: 0 0 0 10px var(--ramka-tel); margin: 10px; } }
+.status { height: 50px; display: flex; justify-content: space-between; align-items: flex-end; padding: 0 28px 6px; font: 600 .9375rem/1 -apple-system, system-ui, sans-serif; }
+.wn { flex: 1; display: flex; flex-direction: column; padding: 12px 20px 20px; gap: 14px; min-height: 0; }
+
+/* segment Fakty / Legenda / Bajka */
+.segment { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font: 700 1.0625rem/1 "Public Sans", sans-serif; color: var(--braz); border: 2px solid var(--braz); border-radius: 6px; padding: 7px 10px; background: var(--lico); }
+.segment svg { width: 18px; height: 18px; }
+
+/* tablica — element firmowy */
+.tablica { background: var(--lico); border: 6px solid var(--braz); border-radius: 10px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--braz); overflow: hidden; }
+.tablica .postep { position: absolute; left: 0; right: 0; bottom: 0; height: 10px; background: var(--braz-tlo); }
+.tablica .postep i { display: block; height: 100%; background: var(--braz); }
+.sylw { width: 72%; max-width: 250px; height: auto; flex: none; color: var(--braz); }
+
+/* widok kierowcy */
+.kierowca .tablica { flex: 1; min-height: 360px; gap: 18px; cursor: pointer; padding-bottom: 20px; }
+.pauza { width: 132px; height: 132px; border-radius: 22px; background: var(--braz); display: grid; place-items: center; }
+.pauza svg { width: 54px; height: 54px; fill: var(--lico); }
+.steruj { text-align: center; font-size: 1.0625rem; color: var(--tekst-2); margin: 0; }
+.ai { text-align: center; font-size: .8125rem; line-height: 1.35; color: var(--tekst-2); margin: 0; }
+
+/* widok postoju */
+.trasa { display: flex; justify-content: space-between; align-items: baseline; font-size: 1rem; color: var(--tekst-2); }
+.trasa b { color: var(--tekst); font-weight: 600; }
+.postoj .tablica { padding: 22px 16px 30px; gap: 14px; min-height: 380px; }
+.postoj .sylw { width: 200px; }
+.nazwa { font: 700 1.75rem/1.15 "Public Sans", sans-serif; text-align: center; margin: 0; }
+.kier { display: flex; align-items: center; gap: 10px; font: 700 1.375rem/1 "Public Sans", sans-serif; }
+.kier svg { width: 44px; height: 26px; fill: currentColor; }
+.czas { font-size: .9375rem; color: var(--tekst-2); font-variant-numeric: tabular-nums; }
+.przyciski { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px; }
+.btn { min-height: 56px; border-radius: 12px; border: 2px solid var(--braz); background: var(--lico); color: var(--braz); font: 700 1.125rem/1 "Public Sans", sans-serif; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.btn.gl { background: var(--braz); color: var(--lico); }
+.btn svg { width: 20px; height: 20px; fill: currentColor; }
+.dalej { display: flex; align-items: center; gap: 12px; border: 3px solid var(--braz); border-radius: 8px; background: var(--lico); padding: 10px 12px; color: var(--braz); }
+.dalej svg { width: 56px; height: 40px; flex: none; }
+.dalej .t { flex: 1; min-width: 0; }
+.dalej .t b { display: block; font: 700 1.125rem/1.2 "Public Sans", sans-serif; }
+.dalej .t span { font-size: .9375rem; color: var(--tekst-2); }
+.zakoncz { min-height: 48px; border: none; background: none; color: var(--tekst); font-size: 1.0625rem; text-decoration: underline; text-underline-offset: 3px; }
+.spacer { flex: 1; }
+
+/* --- panel --- */
+.panel { width: min(390px, 100vw); padding: 0 16px; display: flex; flex-direction: column; gap: 18px; }
+.panel h2 { font: 700 1.0625rem/1.2 "Public Sans", sans-serif; margin: 0 0 8px; }
+.ikony { display: flex; gap: 14px; align-items: flex-end; padding: 14px; border-radius: 12px; }
+.ikony.jasne { background: #FFFFFF; } .ikony.ciemne { background: #000000; }
+.ikona { display: block; border-radius: 22.4%; overflow: hidden; }
+.paleta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-size: .75rem; }
+.paleta div { border-radius: 8px; padding: 34px 6px 6px; border: 1px solid #0002; background: var(--c); color: #111; }
+.paleta div span { background: #fffd; padding: 1px 3px; border-radius: 3px; }
+.kroj { font-family: "Public Sans"; font-weight: 700; font-size: 1.5rem; }
+.glos p { margin: 0 0 6px; font-size: .9375rem; line-height: 1.35; }
+.glos em { color: var(--tekst-2); font-style: normal; font-size: .8125rem; display: block; }
+</style>
+</head>
+<body>
+<header class="opis">
+  <h1>A. Drogowskaz</h1>
+  <p>Każda opowieść to brązowy drogowskaz turystyczny do miejsca, o którym właśnie słuchasz.</p>
+  <p class="probka">Próbka: tytuł, odległość, strona drogi i czasy nie są zweryfikowane. Brąz i proporcja liter z Dz.U. 2019 poz. 2311 (tab. 1.3, pkt 1.4.1).</p>
+</header>
+
+<div class="uklad">
+  <!-- W RUCHU -->
+  <div class="kol">
+    <section class="tel kierowca" aria-label="Ekran w ruchu">
+      <div class="status"><span>14:27</span><span>●●● 5G ▮</span></div>
+      <div class="wn">
+        <div class="segment" aria-label="Rodzaj treści: fakty">
+          <svg viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="16" height="16" rx="3" fill="currentColor"/></svg>Fakty
+        </div>
+        <div class="tablica" role="button" aria-label="Pauza. Gra: Pałac w Kozłówce">
+          <svg class="sylw" viewBox="0 0 240 110" aria-hidden="true">
+            <g fill="currentColor">
+              <rect x="0" y="104" width="240" height="6"/>
+              <rect x="70" y="40" width="100" height="64"/>
+              <polygon points="64,42 120,10 176,42"/>
+              <rect x="10" y="62" width="58" height="42"/>
+              <rect x="172" y="62" width="58" height="42"/>
+              <rect x="114" y="0" width="12" height="14"/>
+            </g>
+            <g style="fill:var(--lico)">
+              <rect x="84" y="56" width="12" height="18"/><rect x="114" y="56" width="12" height="18"/><rect x="144" y="56" width="12" height="18"/>
+              <rect x="108" y="82" width="24" height="22"/>
+              <rect x="22" y="74" width="10" height="14"/><rect x="46" y="74" width="10" height="14"/>
+              <rect x="184" y="74" width="10" height="14"/><rect x="208" y="74" width="10" height="14"/>
+            </g>
+          </svg>
+          <div class="pauza"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="5" height="18" rx="1"/><rect x="14" y="3" width="5" height="18" rx="1"/></svg></div>
+          <div class="postep" aria-hidden="true"><i style="width:33%"></i></div>
+        </div>
+        <p class="steruj">Następna i pomiń: przyciski na kierownicy</p>
+        <p class="ai">Tekst i głos wygenerowane z pomocą AI. Fakty sprawdzone w źródłach.</p>
+      </div>
+    </section>
+    <span class="podpis">W ruchu — kierowca (spec. P4)</span>
+  </div>
+
+  <!-- NA POSTOJU -->
+  <div class="kol">
+    <section class="tel postoj" aria-label="Ekran na postoju">
+      <div class="status"><span>14:27</span><span>●●● 5G ▮</span></div>
+      <div class="wn">
+        <div class="trasa"><span><b>Warszawa – Zamość</b></span><span>10 z 18</span></div>
+        <div class="segment" aria-label="Rodzaj treści: fakty"><svg viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="16" height="16" rx="3" fill="currentColor"/></svg>Fakty</div>
+        <div class="tablica">
+          <svg class="sylw" viewBox="0 0 240 110" aria-hidden="true">
+            <g fill="currentColor"><rect x="0" y="104" width="240" height="6"/><rect x="70" y="40" width="100" height="64"/><polygon points="64,42 120,10 176,42"/><rect x="10" y="62" width="58" height="42"/><rect x="172" y="62" width="58" height="42"/><rect x="114" y="0" width="12" height="14"/></g>
+            <g style="fill:var(--lico)"><rect x="84" y="56" width="12" height="18"/><rect x="114" y="56" width="12" height="18"/><rect x="144" y="56" width="12" height="18"/><rect x="108" y="82" width="24" height="22"/><rect x="22" y="74" width="10" height="14"/><rect x="46" y="74" width="10" height="14"/><rect x="184" y="74" width="10" height="14"/><rect x="208" y="74" width="10" height="14"/></g>
+          </svg>
+          <p class="nazwa">Pałac w Kozłówce</p>
+          <div class="kier" aria-label="4 kilometry, w lewo od trasy">
+            <svg viewBox="0 0 44 26" aria-hidden="true"><polygon points="0,13 16,0 16,8 44,8 44,18 16,18 16,26"/></svg>4 km
+          </div>
+          <span class="czas">1:12 z 3:40</span>
+          <div class="postep" aria-hidden="true"><i style="width:33%"></i></div>
+        </div>
+        <div class="przyciski">
+          <button class="btn gl"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="5" height="18" rx="1"/><rect x="14" y="3" width="5" height="18" rx="1"/></svg>Pauza</button>
+          <button class="btn"><svg viewBox="0 0 24 24"><polygon points="4,3 16,12 4,21"/><rect x="17" y="3" width="3" height="18"/></svg>Następna</button>
+        </div>
+        <div class="dalej">
+          <svg viewBox="0 0 56 40" aria-hidden="true"><g fill="currentColor"><rect x="20" y="4" width="16" height="36"/><polygon points="18,6 28,0 38,6"/><rect x="4" y="18" width="48" height="22"/></g><rect x="24" y="28" width="8" height="12" style="fill:var(--lico)"/></svg>
+          <div class="t"><b>Lublin</b><span>następna opowieść, za ok. 14 km</span></div>
+        </div>
+        <div class="spacer"></div>
+        <button class="zakoncz">Zakończ podróż</button>
+        <p class="ai">Tekst i głos wygenerowane z pomocą AI. Fakty sprawdzone w źródłach.</p>
+      </div>
+    </section>
+    <span class="podpis">Na postoju / pasażer</span>
+  </div>
+
+  <!-- PANEL -->
+  <aside class="panel">
+    <div>
+      <h2>Ikona 180 · 60 · 29</h2>
+      <div class="ikony jasne">
+        <svg class="ikona" width="180" height="180" viewBox="0 0 100 100"><use href="#ik-jasna"/></svg>
+        <svg class="ikona" width="60" height="60" viewBox="0 0 100 100"><use href="#ik-jasna"/></svg>
+        <svg class="ikona" width="29" height="29" viewBox="0 0 100 100"><use href="#ik-jasna"/></svg>
+      </div>
+      <div class="ikony ciemne" style="margin-top:8px">
+        <svg class="ikona" width="180" height="180" viewBox="0 0 100 100"><use href="#ik-ciemna"/></svg>
+        <svg class="ikona" width="60" height="60" viewBox="0 0 100 100"><use href="#ik-ciemna"/></svg>
+        <svg class="ikona" width="29" height="29" viewBox="0 0 100 100"><use href="#ik-ciemna"/></svg>
+      </div>
+    </div>
+    <div>
+      <h2>Kroje</h2>
+      <div class="kroj">Pałac w Kozłówce, 4 km</div>
+      <div style="font-size:1rem">Treść: krój systemowy (SF Pro, Dynamic Type).</div>
+    </div>
+    <div>
+      <h2>Paleta</h2>
+      <div class="paleta">
+        <div style="--c:#FFFFFF"><span>Lico #FFFFFF</span></div>
+        <div style="--c:#6B3815"><span>Brąz #6B3815</span></div>
+        <div style="--c:#26282B"><span>Asfalt #26282B</span></div>
+        <div style="--c:#D9A877"><span>Brąz nocny #D9A877</span></div>
+        <div style="--c:#B20013"><span>Ostrzeżenie #B20013</span></div>
+        <div style="--c:#5E6266"><span>Szary #5E6266</span></div>
+      </div>
+    </div>
+    <div class="glos">
+      <h2>Głos</h2>
+      <p><em>Pusty stan</em>Pierwsza tablica pojawi się przy pierwszym miejscu na trasie.</p>
+      <p><em>Błąd</em>Zgubiłem sygnał GPS. Opowieści wrócą, gdy telefon znów zobaczy niebo.</p>
+      <p><em>Sukces</em>Przejechane: 18 miejsc, 49 minut opowieści.</p>
+    </div>
+  </aside>
+</div>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <g id="ik-jasna">
+      <rect width="100" height="100" fill="#FFFFFF"/>
+      <rect x="9" y="9" width="82" height="82" rx="8" fill="none" stroke="#6B3815" stroke-width="8"/>
+      <g fill="#6B3815"><rect x="22" y="66" width="56" height="5"/><rect x="38" y="40" width="24" height="26"/><polygon points="35,42 50,28 65,42"/><rect x="24" y="50" width="14" height="16"/><rect x="62" y="50" width="14" height="16"/></g>
+      <rect x="46" y="54" width="8" height="12" fill="#FFFFFF"/>
+    </g>
+    <g id="ik-ciemna">
+      <rect width="100" height="100" fill="#3A2416"/>
+      <rect x="9" y="9" width="82" height="82" rx="8" fill="none" stroke="#D9A877" stroke-width="8"/>
+      <g fill="#D9A877"><rect x="22" y="66" width="56" height="5"/><rect x="38" y="40" width="24" height="26"/><polygon points="35,42 50,28 65,42"/><rect x="24" y="50" width="14" height="16"/><rect x="62" y="50" width="14" height="16"/></g>
+      <rect x="46" y="54" width="8" height="12" fill="#3A2416"/>
+    </g>
+  </defs>
+</svg>
+</body>
+</html>

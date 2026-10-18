@@ -1,0 +1,20 @@
+{
+ "jasny: brąz na licu (tytuł, Fakty, Następna, km)": ["#6B3815", "#FFFFFF"],
+ "jasny: lico na brązie (Pauza, glif pauzy)": ["#FFFFFF", "#6B3815"],
+ "jasny: tekst na jezdni (trasa, Zakończ podróż)": ["#1D1F21", "#ECEDEE"],
+ "jasny: tekst drugorzędny na jezdni (AI, podpowiedź, numer opowieści)": ["#5E6266", "#ECEDEE"],
+ "jasny: tekst drugorzędny na licu (czas, następna opowieść)": ["#5E6266", "#FFFFFF"],
+ "jasny: obrzeże tablicy/przycisku do jezdni (UI)": ["#6B3815", "#ECEDEE", 3],
+ "jasny: pasek postępu brąz do jasnego brązu (UI)": ["#6B3815", "#F3ECE6", 3],
+ "jasny: znacznik kodu treści (pełny/kreski/kontur) do lica (UI)": ["#6B3815", "#FFFFFF", 3],
+ "jasny: ostrzeżenie na licu": ["#B20013", "#FFFFFF"],
+ "ciemny: brąz nocny na licu nocnym": ["#D9A877", "#1F2124"],
+ "ciemny: lico nocne na brązie nocnym (Pauza, glif pauzy)": ["#1F2124", "#D9A877"],
+ "ciemny: tekst na asfalcie": ["#F1EEEA", "#26282B"],
+ "ciemny: tekst drugorzędny na asfalcie": ["#A9ADB2", "#26282B"],
+ "ciemny: tekst drugorzędny na licu nocnym": ["#A9ADB2", "#1F2124"],
+ "ciemny: obrzeże tablicy/przycisku do asfaltu (UI)": ["#D9A877", "#26282B", 3],
+ "ciemny: pasek postępu (UI)": ["#D9A877", "#3A2E25", 3],
+ "ciemny: znacznik kodu treści do lica nocnego (UI)": ["#D9A877", "#1F2124", 3],
+ "ciemny: ostrzeżenie na licu nocnym": ["#FF8A80", "#1F2124"]
+}

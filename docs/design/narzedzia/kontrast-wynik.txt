@@ -1,0 +1,19 @@
+OK   9.54:1 (min 4.5) jasny: brąz na licu (tytuł, Fakty, Następna, km) #6B3815 na #FFFFFF
+OK   9.54:1 (min 4.5) jasny: lico na brązie (Pauza, glif pauzy) #FFFFFF na #6B3815
+OK   14.10:1 (min 4.5) jasny: tekst na jezdni (trasa, Zakończ podróż) #1D1F21 na #ECEDEE
+OK   5.25:1 (min 4.5) jasny: tekst drugorzędny na jezdni (AI, podpowiedź, numer opowieści) #5E6266 na #ECEDEE
+OK   6.15:1 (min 4.5) jasny: tekst drugorzędny na licu (czas, następna opowieść) #5E6266 na #FFFFFF
+OK   8.14:1 (min 3) jasny: obrzeże tablicy/przycisku do jezdni (UI) #6B3815 na #ECEDEE
+OK   8.15:1 (min 3) jasny: pasek postępu brąz do jasnego brązu (UI) #6B3815 na #F3ECE6
+OK   9.54:1 (min 3) jasny: znacznik kodu treści (pełny/kreski/kontur) do lica (UI) #6B3815 na #FFFFFF
+OK   7.24:1 (min 4.5) jasny: ostrzeżenie na licu #B20013 na #FFFFFF
+OK   7.54:1 (min 4.5) ciemny: brąz nocny na licu nocnym #D9A877 na #1F2124
+OK   7.54:1 (min 4.5) ciemny: lico nocne na brązie nocnym (Pauza, glif pauzy) #1F2124 na #D9A877
+OK   12.78:1 (min 4.5) ciemny: tekst na asfalcie #F1EEEA na #26282B
+OK   6.55:1 (min 4.5) ciemny: tekst drugorzędny na asfalcie #A9ADB2 na #26282B
+OK   7.15:1 (min 4.5) ciemny: tekst drugorzędny na licu nocnym #A9ADB2 na #1F2124
+OK   6.91:1 (min 3) ciemny: obrzeże tablicy/przycisku do asfaltu (UI) #D9A877 na #26282B
+OK   6.15:1 (min 3) ciemny: pasek postępu (UI) #D9A877 na #3A2E25
+OK   7.54:1 (min 3) ciemny: znacznik kodu treści do lica nocnego (UI) #D9A877 na #1F2124
+OK   7.07:1 (min 4.5) ciemny: ostrzeżenie na licu nocnym #FF8A80 na #1F2124
+kod wyjścia: 0

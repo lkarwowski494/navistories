@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pl" data-kroj="jost" data-kod="nie">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drogowskaz — kroje tytułów</title>
+<!--
+  E2 pkt 6: porównanie krojów tytułowych na ekranie kluczowym kierunku A „Drogowskaz”.
+  Krój tytułów przełącza atrybut <html data-kroj="...">; kod rodzaju treści: <html data-kod="tak|nie">.
+  Waga każdego kroju = waga, przy której grubość pnia „H” = 1/6 wysokości wersalika
+  (gr = d/6, Dz.U. 2019 poz. 2311, pkt 1.4.1; pomiar: narzedzia/kroje-pomiar.mjs).
+  Treść: na iOS SF Pro; w makiecie zastępczo Inter (lokalny w środowisku zrzutów, niedołączany).
+  [PRZYKŁAD] tytuł, odległość, strona drogi, czasy, numer opowieści — niezweryfikowane, próbka kształtu.
+  Tablica jest wywiedziona z drogowskazów E-7…E-12/E-22b (biel, brązowe obrzeże, sylwetka), nie jest kopią znaku.
+-->
+<style>
+@font-face { font-family: "Public Sans"; src: url("../fonty/public-sans/PublicSans.ttf") format("truetype"); font-weight: 100 900; }
+@font-face { font-family: "Signika"; src: url("../fonty/signika/Signika.ttf") format("truetype"); font-weight: 300 700; }
+@font-face { font-family: "League Spartan"; src: url("../fonty/league-spartan/LeagueSpartan.ttf") format("truetype"); font-weight: 100 900; }
+@font-face { font-family: "Jost"; src: url("../fonty/jost/Jost.ttf") format("truetype"); font-weight: 100 900; }
+@font-face { font-family: "Overpass"; src: url("../fonty/overpass/Overpass.ttf") format("truetype"); font-weight: 100 900; }
+@font-face { font-family: "Tresc"; src: local("Inter"), local("Inter Regular"); font-weight: 100 900; }
+
+:root {
+  --lico: #FFFFFF;          /* tło drogowskazów E-7…E-12 */
+  --braz: #6B3815;          /* brąz, tab. 1.3 Dz.U. 2019 poz. 2311 — przeliczenie, uproszczenie (Y 0,06) */
+  --braz-tlo: #F3ECE6;
+  --tekst: #1D1F21;
+  --tekst-2: #5E6266;
+  --tlo: #ECEDEE;           /* jezdnia w dzień */
+  --ostrz: #B20013;
+  --strona: #F6F6F5;
+  --dt-tytul: 1;
+  --dt-tresc: 1;
+  --kroj: "Jost"; --waga: 490; --waga-mocna: 600;
+}
+[data-theme="dark"] {
+  --lico: #1F2124;
+  --braz: #D9A877;
+  --braz-tlo: #3A2E25;
+  --tekst: #F1EEEA;
+  --tekst-2: #A9ADB2;
+  --tlo: #26282B;
+  --ostrz: #FF8A80;
+  --strona: #151617;
+}
+/* waga = gr/d 1/6 (pomiar); --waga-mocna dla krótkich etykiet na brązie */
+[data-kroj="public-sans"]    { --kroj: "Public Sans";    --waga: 600; --waga-mocna: 700; }
+[data-kroj="signika"]        { --kroj: "Signika";        --waga: 470; --waga-mocna: 600; }
+[data-kroj="league-spartan"] { --kroj: "League Spartan"; --waga: 540; --waga-mocna: 650; }
+[data-kroj="jost"]           { --kroj: "Jost";           --waga: 490; --waga-mocna: 600; }
+[data-kroj="overpass"]       { --kroj: "Overpass";       --waga: 610; --waga-mocna: 720; }
+/* Jost: zestaw ss01 = jednopiętrowe „a”, jak we wzorach liter rys. 1.4.3 (Dz.U. 2019 poz. 2311, s. 24) */
+[data-kroj="jost"] .t { font-feature-settings: "ss01"; }
+
+* { box-sizing: border-box; }
+html { font-size: 16px; }
+body { margin: 0; background: var(--strona); color: var(--tekst); font-family: "Tresc", sans-serif; }
+.uklad { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; padding: 24px 0; }
+.t { font-family: var(--kroj), sans-serif; font-weight: var(--waga); font-size-adjust: cap-height 0.7; }
+/* font-size-adjust: równa wysokość wersalika we wszystkich krojach (d = 0,7 em), żeby porównywać kształt, nie wielkość */
+.nw { white-space: nowrap; }
+
+/* --- ekran --- */
+main[data-ekran] { width: var(--w, 390px); min-height: 844px; background: var(--tlo); display: flex; flex-direction: column; }
+.status { height: 50px; flex: none; display: flex; justify-content: space-between; align-items: flex-end; padding: 0 28px 6px; font: 600 15px/1 "Tresc", sans-serif; }
+.wn { flex: 1; display: flex; flex-direction: column; padding: 12px 20px 20px; gap: 14px; }
+
+/* etykieta rodzaju treści (spec. P16) */
+.segment { align-self: flex-start; display: inline-flex; align-items: center; gap: .5rem; font-size: calc(1.125rem * var(--dt-tytul)); line-height: 1; color: var(--braz); border: 2px solid var(--braz); border-radius: 6px; padding: .45rem .7rem; background: var(--lico); }
+.segment .znak { display: none; width: 1.05em; height: 1.05em; flex: none; }
+[data-kod="tak"] .segment .znak { display: block; }
+.znak .pelny { fill: var(--braz); } .znak .kreski { fill: url(#kreski); } .znak .obrys { fill: none; stroke: var(--braz); stroke-width: 2.5; }
+
+/* tablica — element firmowy */
+.tablica { background: var(--lico); border: 6px solid var(--braz); border-radius: 10px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--braz); overflow: hidden; }
+.tablica .postep { position: absolute; left: 0; right: 0; bottom: 0; height: 10px; background: var(--braz-tlo); }
+.tablica .postep i { display: block; height: 100%; background: var(--braz); }
+.sylw { width: 72%; max-width: 250px; height: auto; flex: none; color: var(--braz); }
+
+/* w ruchu */
+.kierowca .tablica { flex: 1; min-height: 360px; gap: 18px; padding-bottom: 20px; }
+.pauza { width: 132px; height: 132px; border-radius: 22px; background: var(--braz); display: grid; place-items: center; }
+.pauza svg { width: 54px; height: 54px; fill: var(--lico); }
+.steruj { text-align: center; font-size: calc(1.0625rem * var(--dt-tresc)); line-height: 1.3; color: var(--tekst-2); margin: 0; }
+.ai { text-align: center; font-size: calc(.8125rem * var(--dt-tresc)); line-height: 1.35; color: var(--tekst-2); margin: 0; }
+
+/* na postoju */
+.trasa { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px; font-size: calc(1rem * var(--dt-tresc)); color: var(--tekst-2); }
+.trasa b { color: var(--tekst); font-weight: 600; }
+.postoj .tablica { padding: 22px 16px 30px; gap: 12px; }
+.postoj .sylw { width: 190px; }
+.nazwa { font-size: calc(1.875rem * var(--dt-tytul)); line-height: 1.12; text-align: center; margin: 0; overflow-wrap: anywhere; }
+.kier { display: flex; align-items: center; gap: 10px; font-size: calc(1.5rem * var(--dt-tytul)); line-height: 1; font-variant-numeric: tabular-nums; }
+.kier svg { width: 44px; height: 26px; fill: currentColor; flex: none; }
+.czas { white-space: nowrap; font-size: calc(.9375rem * var(--dt-tresc)); color: var(--tekst-2); font-variant-numeric: tabular-nums; }
+.przyciski { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, calc(8rem * var(--dt-tytul))), 1fr)); gap: 12px; }
+.btn { min-height: 56px; border-radius: 12px; border: 2px solid var(--braz); background: var(--lico); color: var(--braz); font-size: calc(1.1875rem * var(--dt-tytul)); line-height: 1.1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 8px 12px; }
+.btn.gl { background: var(--braz); color: var(--lico); font-weight: var(--waga-mocna); }
+.btn svg { width: 20px; height: 20px; fill: currentColor; flex: none; }
+.dalej { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; border: 3px solid var(--braz); border-radius: 8px; background: var(--lico); padding: 10px 12px; color: var(--braz); }
+.dalej > svg { width: 56px; height: 40px; flex: none; }
+.dalej .tt { flex: 1 1 calc(12rem * var(--dt-tresc)); min-width: 0; }
+.dalej .tt b { display: block; font-size: calc(1.25rem * var(--dt-tytul)); line-height: 1.2; }
+.dalej .tt span { font-size: calc(.9375rem * var(--dt-tresc)); color: var(--tekst-2); }
+.zakoncz { min-height: 48px; border: none; background: none; color: var(--tekst); font: inherit; font-size: calc(1.0625rem * var(--dt-tresc)); text-decoration: underline; text-underline-offset: 3px; }
+.spacer { flex: 1; }
+
+/* panele poza ekranem: etykiety rodzaju treści */
+.etykiety { align-self: flex-start; align-items: center; display: flex; gap: 10px; padding: 14px; background: var(--tlo); width: var(--w, 390px); flex-wrap: wrap; }
+.etykiety .segment { align-self: auto; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <pattern id="kreski" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="2.4" height="5" style="fill:var(--braz)"/>
+    </pattern>
+    <symbol id="palac" viewBox="0 0 240 110">
+      <g fill="currentColor">
+        <rect x="0" y="104" width="240" height="6"/><rect x="70" y="40" width="100" height="64"/><polygon points="64,42 120,10 176,42"/>
+        <rect x="10" y="62" width="58" height="42"/><rect x="172" y="62" width="58" height="42"/><rect x="114" y="0" width="12" height="14"/>
+      </g>
+      <g style="fill:var(--lico)">
+        <rect x="84" y="56" width="12" height="18"/><rect x="114" y="56" width="12" height="18"/><rect x="144" y="56" width="12" height="18"/>
+        <rect x="108" y="82" width="24" height="22"/><rect x="22" y="74" width="10" height="14"/><rect x="46" y="74" width="10" height="14"/>
+        <rect x="184" y="74" width="10" height="14"/><rect x="208" y="74" width="10" height="14"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="uklad">
+  <main data-ekran="w-ruchu" class="kierowca" aria-label="Ekran w ruchu">
+    <div class="status"><span>14:27</span><span>5G</span></div>
+    <div class="wn">
+      <div class="segment t" aria-label="Rodzaj treści: fakty"><svg class="znak" viewBox="0 0 20 20" aria-hidden="true"><rect class="pelny" x="1.5" y="1.5" width="17" height="17" rx="3"/></svg>Fakty</div>
+      <div class="tablica" role="button" aria-label="Pauza. Gra opowieść: Pałac w Kozłówce, fakty">
+        <svg class="sylw" viewBox="0 0 240 110" aria-hidden="true"><use href="#palac"/></svg>
+        <div class="pauza"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="5" height="18" rx="1"/><rect x="14" y="3" width="5" height="18" rx="1"/></svg></div>
+        <div class="postep" aria-hidden="true"><i style="width:33%"></i></div>
+      </div>
+      <p class="steruj">Następna i pomiń: przyciski na kierownicy</p>
+      <p class="ai">Tekst i głos wygenerowane z pomocą AI. Fakty sprawdzone w źródłach.</p>
+    </div>
+  </main>
+
+  <main data-ekran="na-postoju" class="postoj" aria-label="Ekran na postoju">
+    <div class="status"><span>14:27</span><span>5G</span></div>
+    <div class="wn">
+      <div class="trasa"><span><b>Warszawa&nbsp;– Zamość</b></span><span>opowieść <span class="nw">10 z 18</span></span></div>
+      <div class="segment t" aria-label="Rodzaj treści: fakty"><svg class="znak" viewBox="0 0 20 20" aria-hidden="true"><rect class="pelny" x="1.5" y="1.5" width="17" height="17" rx="3"/></svg>Fakty</div>
+      <div class="tablica">
+        <svg class="sylw" viewBox="0 0 240 110" aria-hidden="true"><use href="#palac"/></svg>
+        <p class="nazwa t">Pałac w Kozłówce</p>
+        <div class="kier t" aria-label="4 kilometry, w lewo od trasy">
+          <svg viewBox="0 0 44 26" aria-hidden="true"><polygon points="0,13 16,0 16,8 44,8 44,18 16,18 16,26"/></svg>4 km
+        </div>
+        <span class="czas">1:12 z 3:40</span>
+        <div class="postep" aria-hidden="true"><i style="width:33%"></i></div>
+      </div>
+      <div class="przyciski">
+        <button class="btn gl t"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="5" height="18" rx="1"/><rect x="14" y="3" width="5" height="18" rx="1"/></svg>Pauza</button>
+        <button class="btn t"><svg viewBox="0 0 24 24"><polygon points="4,3 16,12 4,21"/><rect x="17" y="3" width="3" height="18"/></svg>Następna</button>
+      </div>
+      <div class="dalej">
+        <svg viewBox="0 0 56 40" aria-hidden="true"><g fill="currentColor"><rect x="20" y="4" width="16" height="36"/><polygon points="18,6 28,0 38,6"/><rect x="4" y="18" width="48" height="22"/></g><rect x="24" y="28" width="8" height="12" style="fill:var(--lico)"/></svg>
+        <div class="tt"><b class="t">Zamek w Lublinie</b><span>następna opowieść, za ok. <span class="nw">14 km</span></span></div>
+      </div>
+      <div class="spacer"></div>
+      <button class="zakoncz">Zakończ podróż</button>
+      <p class="ai">Tekst i głos wygenerowane z pomocą AI. Fakty sprawdzone w źródłach.</p>
+    </div>
+  </main>
+
+  <div class="etykiety" data-panel="etykiety">
+    <div class="segment t" aria-label="Rodzaj treści: fakty"><svg class="znak" viewBox="0 0 20 20" aria-hidden="true"><rect class="pelny" x="1.5" y="1.5" width="17" height="17" rx="3"/></svg>Fakty</div>
+    <div class="segment t" aria-label="Rodzaj treści: legenda"><svg class="znak" viewBox="0 0 20 20" aria-hidden="true"><rect class="kreski" x="1.5" y="1.5" width="17" height="17" rx="3"/><rect class="obrys" x="1.25" y="1.25" width="17.5" height="17.5" rx="3"/></svg>Legenda</div>
+    <div class="segment t" aria-label="Rodzaj treści: bajka"><svg class="znak" viewBox="0 0 20 20" aria-hidden="true"><rect class="obrys" x="1.25" y="1.25" width="17.5" height="17.5" rx="3"/></svg>Bajka</div>
+  </div>
+</div>
+</body>
+</html>
