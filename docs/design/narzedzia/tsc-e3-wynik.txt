@@ -1,0 +1,4 @@
+# E3 tsc — 2026-10-18T17:52Z
+# npx -y -p typescript@5 tsc --noEmit --strict docs/design/tokeny.ts (uruchomione z katalogu roboczego poza repo)
+Version 5.9.3
+kod wyjścia: 0

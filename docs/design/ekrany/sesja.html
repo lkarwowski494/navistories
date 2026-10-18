@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sesja — system Drogowskaz</title>
+<!--
+  E3: ekran sesji (EkranSesji.tsx na gałęzi iteracja-0/aplikacja) w stanach z macierzy stanów.
+  Teksty interfejsu: apps/mobile/src/teksty.ts (stan na gałęzi), poza oznaczonymi propozycjami.
+  [PRZYKŁAD] trasa, tytuły, odległości, strona drogi, czasy, liczby historii — próbka kształtu, niezweryfikowana.
+  Dane tablicy (sylwetka, strona drogi, odległość do obiektu, rodzaj treści) nie istnieją jeszcze w schemacie pakietu
+  (packages/pakiet/src/schema.ts) — patrz design-spec.md, „Element firmowy”.
+-->
+<link rel="stylesheet" href="tokeny.css">
+<link rel="stylesheet" href="system.css">
+</head>
+<body>
+<script src="wspolne.js"></script>
+<header class="opis">
+  <h1>Sesja: przed startem, w ruchu, na postoju</h1>
+  W ruchu ekran pokazuje tylko tablicę z dużą pauzą, etykietę rodzaju treści, „Steruj z kierownicy” i oznaczenie AI (spec. P4; bez animacji). Treść: na iOS SF Pro, w makiecie zastępczo Inter — nie oceniać. Dane: [PRZYKŁAD].
+</header>
+
+<div class="uklad">
+
+  <!-- 1. Przed startem (phase ready) -->
+  <main data-ekran="przed-startem" aria-label="Przed startem">
+    <div class="status"><span>14:02</span><span>5G</span></div>
+    <div class="nav"><span class="wstecz"><svg viewBox="0 0 12 20"><path d="M10 2 2 10l8 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Samochód</span></div>
+    <h1 class="duzy-tytul t">Warszawa – Zamość</h1>
+    <div class="wn postoj">
+      <section class="sekcja">
+        <div class="grupa">
+          <div class="wiersz"><span class="tx">Historie na trasie</span><span class="nw" style="color:var(--tekst2);font-size:var(--fs-body)">18</span></div>
+          <div class="wiersz"><span class="tx">Motywy<small>Zamki i pałace, Ludzie i rody</small></span></div>
+        </div>
+        <p class="stopka">Historie zaczną się, gdy dotrzesz do pierwszego punktu.</p>
+      </section>
+      <div class="spacer"></div>
+      <button class="btn gl duzy">Start</button>
+      <p class="ai" aria-label="Tekst i głos wygenerowane z pomocą sztucznej inteligencji. Fakty sprawdzone w źródłach.">Tekst i głos wygenerowane z pomocą AI. Fakty sprawdzone w źródłach.</p>
+    </div>
+  </main>
+
+  <!-- 2. W ruchu, gra historia -->
+  <main data-ekran="w-ruchu" class="w-ruchu" aria-label="W ruchu">
+    <div class="status"><span>14:27</span><span>5G</span></div>
+    <div class="wn">
+      <div class="etykieta t" aria-label="Rodzaj treści: fakty"><svg class="znak" viewBox="0 0 20 20" aria-hidden="true"><rect class="pelny" x="1.5" y="1.5" width="17" height="17" rx="3"/></svg>Fakty</div>
+      <div class="tablica" role="button" aria-label="Pauza" aria-description="Gra: Pałac w Kozłówce. Fakty. Minęła 1 minuta 12 sekund z 3 minut 40 sekund.">
+        <svg class="sylw" viewBox="0 0 240 110" aria-hidden="true"><use href="#palac"/></svg>
+        <div class="pauza"><svg viewBox="0 0 24 24"><use href="#g-pauza"/></svg></div>
+        <div class="postep" aria-hidden="true"><i style="width:30%"></i></div>
+      </div>
+      <p class="steruj">Steruj z kierownicy</p>
+      <p class="ai">Tekst i głos wygenerowane z pomocą AI. Fakty sprawdzone w źródłach.</p>
+    </div>
+  </main>
+
+  <!-- 3. W ruchu, czekam na następną historię (activity waiting) -->
+  <main data-ekran="w-ruchu-czeka" class="w-ruchu" aria-label="W ruchu, czekam">
+    <div class="status"><span>14:41</span><span>5G</span></div>
+    <div class="wn">
+      <div class="tablica" role="img" aria-label="Czekam na następną historię. Następna za około 14 kilometrów.">
+        <svg class="piktogram" viewBox="0 0 100 80" aria-hidden="true"><use href="#droga"/></svg>
+      </div>
+      <p class="steruj">Steruj z kierownicy</p>
+      <p class="ai">Tekst i głos wygenerowane z pomocą AI. Fakty sprawdzone w źródłach.</p>
+    </div>
+  </main>
+
+  <!-- 4. W ruchu, poza trasą (activity off-route): tekst ostrzeżenia mówi głos, nie ekran (P4) -->
+  <main data-ekran="w-ruchu-poza-trasa" class="w-ruchu" aria-label="W ruchu, poza trasą">
+    <div class="status"><span>15:03</span><span>5G</span></div>
+    <div class="wn">
+      <div class="tablica" role="img" aria-label="Poza trasą. Historie wrócą, gdy wrócisz na trasę.">
+        <svg class="piktogram" viewBox="0 0 120 80" aria-hidden="true" style="width:56%;max-width:210px"><use href="#poza"/></svg>
+      </div>
+      <p class="steruj">Steruj z kierownicy</p>
+      <p class="ai">Tekst i głos wygenerowane z pomocą AI. Fakty sprawdzone w źródłach.</p>
+    </div>
+  </main>
+
+  <!-- 5. Na postoju (rekomendacja C: tablica rośnie, bez pustego pasa) -->
+  <main data-ekran="na-postoju" class="postoj" aria-label="Na postoju">
+    <div class="status"><span>14:27</span><span>5G</span></div>
+    <div class="wn postoj">
+      <div class="trasa"><b>Warszawa&nbsp;– Zamość</b><span>historia <span class="nw">10 z 18</span></span></div>
+      <div class="etykieta t" aria-label="Rodzaj treści: fakty"><svg class="znak" viewBox="0 0 20 20" aria-hidden="true"><rect class="pelny" x="1.5" y="1.5" width="17" height="17" rx="3"/></svg>Fakty</div>
+      <div class="tablica" role="group" aria-label="Gra: Pałac w Kozłówce. Fakty. 4 kilometry w lewo od trasy. Minęła 1 minuta 12 sekund z 3 minut 40 sekund.">
+        <svg class="sylw" viewBox="0 0 240 110" aria-hidden="true"><use href="#palac"/></svg>
+        <p class="nazwa t" aria-hidden="true">Pałac w Kozłówce</p>
+        <div class="kier t" aria-hidden="true"><svg viewBox="0 0 44 26"><use href="#g-strzalka-l"/></svg>4 km</div>
+        <span class="czas" aria-hidden="true">1:12 z 3:40</span>
+        <div class="postep" aria-hidden="true"><i style="width:33%"></i></div>
+      </div>
+      <div class="przyciski">
+        <button class="btn gl t"><svg viewBox="0 0 24 24"><use href="#g-pauza"/></svg>Pauza</button>
+        <button class="btn t"><svg viewBox="0 0 24 24"><use href="#g-nastepna"/></svg>Następna</button>
+      </div>
+      <div class="dalej" role="group" aria-label="Następna historia: Zamek w Lublinie, za około 14 kilometrów">
+        <svg viewBox="0 0 240 110" aria-hidden="true" style="width:64px;height:30px"><use href="#zamek"/></svg>
+        <div class="tt" aria-hidden="true"><b class="t">Zamek w Lublinie</b><span>następna historia, za ok. <span class="nw">14 km</span></span></div>
+      </div>
+      <button class="link">Zakończ podróż</button>
+      <p class="ai">Tekst i głos wygenerowane z pomocą AI. Fakty sprawdzone w źródłach.</p>
+    </div>
+  </main>
+
+  <!-- 6. Na postoju, opcja B: lista wysłuchanych z dostępem do Źródeł w trakcie podróży -->
+  <main data-ekran="na-postoju-opcja-b" class="postoj" aria-label="Na postoju, opcja B">
+    <div class="status"><span>14:27</span><span>5G</span></div>
+    <div class="wn">
+      <div class="trasa"><b>Warszawa&nbsp;– Zamość</b><span>historia <span class="nw">10 z 18</span></span></div>
+      <div class="etykieta t" aria-label="Rodzaj treści: fakty"><svg class="znak" viewBox="0 0 20 20" aria-hidden="true"><rect class="pelny" x="1.5" y="1.5" width="17" height="17" rx="3"/></svg>Fakty</div>
+      <div class="tablica" style="padding:20px 16px 30px;gap:10px" role="group" aria-label="Gra: Pałac w Kozłówce. Fakty. 4 kilometry w lewo od trasy. Minęła 1 minuta 12 sekund z 3 minut 40 sekund.">
+        <svg class="sylw" viewBox="0 0 240 110" aria-hidden="true" style="width:170px"><use href="#palac"/></svg>
+        <p class="nazwa t" aria-hidden="true">Pałac w Kozłówce</p>
+        <div class="kier t" aria-hidden="true"><svg viewBox="0 0 44 26"><use href="#g-strzalka-l"/></svg>4 km</div>
+        <span class="czas" aria-hidden="true">1:12 z 3:40</span>
+        <div class="postep" aria-hidden="true"><i style="width:33%"></i></div>
+      </div>
+      <div class="przyciski">
+        <button class="btn gl t"><svg viewBox="0 0 24 24"><use href="#g-pauza"/></svg>Pauza</button>
+        <button class="btn t"><svg viewBox="0 0 24 24"><use href="#g-nastepna"/></svg>Następna</button>
+      </div>
+      <section class="sekcja">
+        <h2>Wysłuchane w tej podróży</h2>
+        <div class="grupa">
+          <div class="wiersz"><span class="miniatura"><svg viewBox="0 0 240 110"><use href="#kosciol"/></svg></span><span class="tx"><span class="t">Kościół w Garwolinie</span><small>Źródła</small></span><svg class="chevron" viewBox="0 0 9 15"><path d="M1.5 1.5 7.5 7.5 1.5 13.5"/></svg></div>
+          <div class="wiersz"><span class="miniatura"><svg viewBox="0 0 240 110"><use href="#zamek"/></svg></span><span class="tx"><span class="t">Twierdza Dęblin</span><small>Źródła</small></span><svg class="chevron" viewBox="0 0 9 15"><path d="M1.5 1.5 7.5 7.5 1.5 13.5"/></svg></div>
+        </div>
+      </section>
+      <button class="link">Zakończ podróż</button>
+      <p class="ai">Tekst i głos wygenerowane z pomocą AI. Fakty sprawdzone w źródłach.</p>
+    </div>
+  </main>
+
+  <!-- 7. Brak uprawnienia do lokalizacji (phase error, location-permission) -->
+  <main data-ekran="brak-uprawnienia" aria-label="Brak uprawnienia">
+    <div class="status"><span>14:02</span><span>5G</span></div>
+    <div class="nav"><span class="wstecz"><svg viewBox="0 0 12 20"><path d="M10 2 2 10l8 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Samochód</span></div>
+    <h1 class="duzy-tytul t">Warszawa – Zamość</h1>
+    <div class="wn">
+      <div class="baner" role="alert">
+        <svg viewBox="0 0 26 26" aria-hidden="true"><path d="M13 2 L25 23 H1 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><rect x="11.8" y="9" width="2.4" height="8" rx="1" fill="currentColor"/><circle cx="13" cy="19.8" r="1.4" fill="currentColor"/></svg>
+        <p><b>Bez dostępu do lokalizacji historie nie mogą się włączać.</b> Zezwól na lokalizację „Podczas używania” w Ustawieniach.</p>
+      </div>
+      <div class="spacer"></div>
+      <button class="btn gl">Otwórz Ustawienia</button>
+      <button class="btn">Nowa podróż</button>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

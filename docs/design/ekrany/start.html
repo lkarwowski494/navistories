@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start — system Drogowskaz</title>
+<!--
+  E3: pierwsze uruchomienie (EkranUjawnienia.tsx) i wybór trybu (EkranStartowy.tsx), gałąź iteracja-0/aplikacja.
+  Treść ujawnienia AI: dosłownie teksty.ts → ujawnienie.tresc (bez zmian).
+  Objaśnienia oznaczeń Fakty/Legenda/Bajka: PROPOZYCJA brzmienia [PRZYKŁAD]; definicje rodzajów treści pochodzą ze spec. P16
+  i przed wydaniem przechodzą przez rejestr merytoryczny (rola 06).
+-->
+<link rel="stylesheet" href="tokeny.css">
+<link rel="stylesheet" href="system.css">
+</head>
+<body>
+<script src="wspolne.js"></script>
+<header class="opis">
+  <h1>Pierwsze uruchomienie i wybór trybu</h1>
+  Ujawnienie AI zostaje w brzmieniu z teksty.ts; dochodzi objaśnienie trzech oznaczeń rodzaju treści, bo kod kształtu trzeba raz poznać. Treść: na iOS SF Pro, w makiecie zastępczo Inter. Dane: [PRZYKŁAD].
+</header>
+
+<div class="uklad">
+
+  <main data-ekran="pierwsze-uruchomienie" aria-label="Zanim zaczniesz">
+    <div class="status"><span>9:41</span><span>5G</span></div>
+    <div class="nav"></div>
+    <h1 class="duzy-tytul t">Zanim zaczniesz</h1>
+    <div class="wn">
+      <p class="akapit">Historie w NaviStories są pisane z pomocą sztucznej inteligencji (AI) i czytane głosem generowanym przez AI. Każdy fakt sprawdzamy w źródłach; dla każdej historii możesz zobaczyć listę instytucji i adresów, z których pochodzą informacje.</p>
+      <section class="sekcja" style="margin-top:8px">
+        <h2>Każda historia ma oznaczenie</h2>
+        <div class="grupa">
+          <div class="wiersz"><span class="etykieta t" aria-hidden="true"><svg class="znak" viewBox="0 0 20 20"><rect class="pelny" x="1.5" y="1.5" width="17" height="17" rx="3"/></svg>Fakty</span><span class="tx">sprawdzone w źródłach</span></div>
+          <div class="wiersz"><span class="etykieta t" aria-hidden="true"><svg class="znak" viewBox="0 0 20 20"><rect class="kreski" x="1.5" y="1.5" width="17" height="17" rx="3"/><rect class="obrys" x="1.25" y="1.25" width="17.5" height="17.5" rx="3"/></svg>Legenda</span><span class="tx">opowiadana w okolicy, nie fakt</span></div>
+          <div class="wiersz"><span class="etykieta t" aria-hidden="true"><svg class="znak" viewBox="0 0 20 20"><rect class="obrys" x="1.25" y="1.25" width="17.5" height="17.5" rx="3"/></svg>Bajka</span><span class="tx">wymyślona dla zabawy</span></div>
+        </div>
+      </section>
+      <div class="spacer"></div>
+      <button class="btn gl">Rozumiem</button>
+    </div>
+  </main>
+
+  <main data-ekran="wybor-trybu" aria-label="Jak dziś podróżujesz">
+    <div class="status"><span>9:42</span><span>5G</span></div>
+    <div class="nav"></div>
+    <h1 class="duzy-tytul t">NaviStories</h1>
+    <div class="wn">
+      <section class="sekcja">
+        <h2 class="t" style="font-size:var(--fs-tytul-sekcji);line-height:var(--lh-tytul-sekcji);color:var(--tekst);padding:0 4px 4px">Jak dziś podróżujesz?</h2>
+        <div class="grupa">
+          <div class="wiersz" style="min-height:88px" role="button" aria-label="Samochodem" aria-description="Historie o miejscach mijanych na trasie">
+            <span class="tx"><span class="t">Samochodem</span><small>Historie o miejscach mijanych na trasie</small></span>
+            <svg class="chevron" viewBox="0 0 9 15"><path d="M1.5 1.5 7.5 7.5 1.5 13.5"/></svg>
+          </div>
+          <div class="wiersz" style="min-height:88px" role="button" aria-label="Pieszo" aria-description="Spacer z historiami po okolicy">
+            <span class="tx"><span class="t">Pieszo</span><small>Spacer z historiami po okolicy</small></span>
+            <svg class="chevron" viewBox="0 0 9 15"><path d="M1.5 1.5 7.5 7.5 1.5 13.5"/></svg>
+          </div>
+        </div>
+      </section>
+      <section class="sekcja" style="margin-top:12px">
+        <div class="grupa">
+          <div class="wiersz" role="button"><span class="tx">O aplikacji</span><svg class="chevron" viewBox="0 0 9 15"><path d="M1.5 1.5 7.5 7.5 1.5 13.5"/></svg></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

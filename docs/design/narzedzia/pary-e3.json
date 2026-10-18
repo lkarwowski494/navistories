@@ -1,0 +1,322 @@
+{
+ "jasny/standard: tekst na jezdni (trasa, nagłówki ekranów, „Zakończ podróż”)": [
+  "#1D1F21",
+  "#ECEDEE",
+  4.5
+ ],
+ "jasny/standard: tekst na licu (komórki list, treść ujawnienia AI)": [
+  "#1D1F21",
+  "#FFFFFF",
+  4.5
+ ],
+ "jasny/standard: tekst drugorzędny na jezdni (oznaczenie AI, podpowiedź, nagłówek sekcji)": [
+  "#5E6266",
+  "#ECEDEE",
+  4.5
+ ],
+ "jasny/standard: tekst drugorzędny na licu (czas, opis komórki, przycisk wyłączony)": [
+  "#5E6266",
+  "#FFFFFF",
+  4.5
+ ],
+ "jasny/standard: brąz na licu (nazwa miejsca, km, etykieta rodzaju treści, linki, przycisk drugorzędny)": [
+  "#6B3815",
+  "#FFFFFF",
+  4.5
+ ],
+ "jasny/standard: brąz na jezdni (link „Źródła” poza komórką)": [
+  "#6B3815",
+  "#ECEDEE",
+  4.5
+ ],
+ "jasny/standard: tekst na brązie (przycisk główny)": [
+  "#FFFFFF",
+  "#6B3815",
+  4.5
+ ],
+ "jasny/standard: tekst na brązie wciśniętym": [
+  "#FFFFFF",
+  "#4F290F",
+  4.5
+ ],
+ "jasny/standard: ostrzeżenie na licu (tekst i ikona „Poza trasą”, błąd)": [
+  "#B20013",
+  "#FFFFFF",
+  4.5
+ ],
+ "jasny/standard: ostrzeżenie na jezdni (tekst błędu poza komórką)": [
+  "#B20013",
+  "#ECEDEE",
+  4.5
+ ],
+ "jasny/standard: obrzeże tablicy / przycisku / etykiety do jezdni (UI)": [
+  "#6B3815",
+  "#ECEDEE",
+  3
+ ],
+ "jasny/standard: sylwetka, znacznik rodzaju treści, ptaszek wyboru, przełącznik do lica (UI)": [
+  "#6B3815",
+  "#FFFFFF",
+  3
+ ],
+ "jasny/standard: wypełnienie paska postępu do toru (UI)": [
+  "#6B3815",
+  "#F3ECE6",
+  3
+ ],
+ "jasny/standard: glif pauzy na brązie (UI)": [
+  "#FFFFFF",
+  "#6B3815",
+  3
+ ],
+ "jasny/standard: kreskowana ramka przycisku wyłączonego do lica (UI)": [
+  "#5E6266",
+  "#FFFFFF",
+  3
+ ],
+ "jasny/standard: ikona ostrzeżenia na licu (UI)": [
+  "#B20013",
+  "#FFFFFF",
+  3
+ ],
+ "jasny/zwiekszonyKontrast: tekst na jezdni (trasa, nagłówki ekranów, „Zakończ podróż”)": [
+  "#0F1011",
+  "#E4E5E7",
+  4.5
+ ],
+ "jasny/zwiekszonyKontrast: tekst na licu (komórki list, treść ujawnienia AI)": [
+  "#0F1011",
+  "#FFFFFF",
+  4.5
+ ],
+ "jasny/zwiekszonyKontrast: tekst drugorzędny na jezdni (oznaczenie AI, podpowiedź, nagłówek sekcji)": [
+  "#3B3E42",
+  "#E4E5E7",
+  4.5
+ ],
+ "jasny/zwiekszonyKontrast: tekst drugorzędny na licu (czas, opis komórki, przycisk wyłączony)": [
+  "#3B3E42",
+  "#FFFFFF",
+  4.5
+ ],
+ "jasny/zwiekszonyKontrast: brąz na licu (nazwa miejsca, km, etykieta rodzaju treści, linki, przycisk drugorzędny)": [
+  "#4F290F",
+  "#FFFFFF",
+  4.5
+ ],
+ "jasny/zwiekszonyKontrast: brąz na jezdni (link „Źródła” poza komórką)": [
+  "#4F290F",
+  "#E4E5E7",
+  4.5
+ ],
+ "jasny/zwiekszonyKontrast: tekst na brązie (przycisk główny)": [
+  "#FFFFFF",
+  "#4F290F",
+  4.5
+ ],
+ "jasny/zwiekszonyKontrast: tekst na brązie wciśniętym": [
+  "#FFFFFF",
+  "#361B08",
+  4.5
+ ],
+ "jasny/zwiekszonyKontrast: ostrzeżenie na licu (tekst i ikona „Poza trasą”, błąd)": [
+  "#8E000F",
+  "#FFFFFF",
+  4.5
+ ],
+ "jasny/zwiekszonyKontrast: ostrzeżenie na jezdni (tekst błędu poza komórką)": [
+  "#8E000F",
+  "#E4E5E7",
+  4.5
+ ],
+ "jasny/zwiekszonyKontrast: obrzeże tablicy / przycisku / etykiety do jezdni (UI)": [
+  "#4F290F",
+  "#E4E5E7",
+  3
+ ],
+ "jasny/zwiekszonyKontrast: sylwetka, znacznik rodzaju treści, ptaszek wyboru, przełącznik do lica (UI)": [
+  "#4F290F",
+  "#FFFFFF",
+  3
+ ],
+ "jasny/zwiekszonyKontrast: wypełnienie paska postępu do toru (UI)": [
+  "#4F290F",
+  "#E6D6C6",
+  3
+ ],
+ "jasny/zwiekszonyKontrast: glif pauzy na brązie (UI)": [
+  "#FFFFFF",
+  "#4F290F",
+  3
+ ],
+ "jasny/zwiekszonyKontrast: kreskowana ramka przycisku wyłączonego do lica (UI)": [
+  "#3B3E42",
+  "#FFFFFF",
+  3
+ ],
+ "jasny/zwiekszonyKontrast: ikona ostrzeżenia na licu (UI)": [
+  "#8E000F",
+  "#FFFFFF",
+  3
+ ],
+ "ciemny/standard: tekst na jezdni (trasa, nagłówki ekranów, „Zakończ podróż”)": [
+  "#F1EEEA",
+  "#1C1E21",
+  4.5
+ ],
+ "ciemny/standard: tekst na licu (komórki list, treść ujawnienia AI)": [
+  "#F1EEEA",
+  "#2A2C30",
+  4.5
+ ],
+ "ciemny/standard: tekst drugorzędny na jezdni (oznaczenie AI, podpowiedź, nagłówek sekcji)": [
+  "#AEB2B7",
+  "#1C1E21",
+  4.5
+ ],
+ "ciemny/standard: tekst drugorzędny na licu (czas, opis komórki, przycisk wyłączony)": [
+  "#AEB2B7",
+  "#2A2C30",
+  4.5
+ ],
+ "ciemny/standard: brąz na licu (nazwa miejsca, km, etykieta rodzaju treści, linki, przycisk drugorzędny)": [
+  "#D9A877",
+  "#2A2C30",
+  4.5
+ ],
+ "ciemny/standard: brąz na jezdni (link „Źródła” poza komórką)": [
+  "#D9A877",
+  "#1C1E21",
+  4.5
+ ],
+ "ciemny/standard: tekst na brązie (przycisk główny)": [
+  "#1C1E21",
+  "#D9A877",
+  4.5
+ ],
+ "ciemny/standard: tekst na brązie wciśniętym": [
+  "#1C1E21",
+  "#E9C59F",
+  4.5
+ ],
+ "ciemny/standard: ostrzeżenie na licu (tekst i ikona „Poza trasą”, błąd)": [
+  "#FF8A80",
+  "#2A2C30",
+  4.5
+ ],
+ "ciemny/standard: ostrzeżenie na jezdni (tekst błędu poza komórką)": [
+  "#FF8A80",
+  "#1C1E21",
+  4.5
+ ],
+ "ciemny/standard: obrzeże tablicy / przycisku / etykiety do jezdni (UI)": [
+  "#D9A877",
+  "#1C1E21",
+  3
+ ],
+ "ciemny/standard: sylwetka, znacznik rodzaju treści, ptaszek wyboru, przełącznik do lica (UI)": [
+  "#D9A877",
+  "#2A2C30",
+  3
+ ],
+ "ciemny/standard: wypełnienie paska postępu do toru (UI)": [
+  "#D9A877",
+  "#4A3A2D",
+  3
+ ],
+ "ciemny/standard: glif pauzy na brązie (UI)": [
+  "#1C1E21",
+  "#D9A877",
+  3
+ ],
+ "ciemny/standard: kreskowana ramka przycisku wyłączonego do lica (UI)": [
+  "#AEB2B7",
+  "#2A2C30",
+  3
+ ],
+ "ciemny/standard: ikona ostrzeżenia na licu (UI)": [
+  "#FF8A80",
+  "#2A2C30",
+  3
+ ],
+ "ciemny/zwiekszonyKontrast: tekst na jezdni (trasa, nagłówki ekranów, „Zakończ podróż”)": [
+  "#FFFFFF",
+  "#141517",
+  4.5
+ ],
+ "ciemny/zwiekszonyKontrast: tekst na licu (komórki list, treść ujawnienia AI)": [
+  "#FFFFFF",
+  "#24262A",
+  4.5
+ ],
+ "ciemny/zwiekszonyKontrast: tekst drugorzędny na jezdni (oznaczenie AI, podpowiedź, nagłówek sekcji)": [
+  "#D0D3D7",
+  "#141517",
+  4.5
+ ],
+ "ciemny/zwiekszonyKontrast: tekst drugorzędny na licu (czas, opis komórki, przycisk wyłączony)": [
+  "#D0D3D7",
+  "#24262A",
+  4.5
+ ],
+ "ciemny/zwiekszonyKontrast: brąz na licu (nazwa miejsca, km, etykieta rodzaju treści, linki, przycisk drugorzędny)": [
+  "#F0CFA8",
+  "#24262A",
+  4.5
+ ],
+ "ciemny/zwiekszonyKontrast: brąz na jezdni (link „Źródła” poza komórką)": [
+  "#F0CFA8",
+  "#141517",
+  4.5
+ ],
+ "ciemny/zwiekszonyKontrast: tekst na brązie (przycisk główny)": [
+  "#141517",
+  "#F0CFA8",
+  4.5
+ ],
+ "ciemny/zwiekszonyKontrast: tekst na brązie wciśniętym": [
+  "#141517",
+  "#F8E2C8",
+  4.5
+ ],
+ "ciemny/zwiekszonyKontrast: ostrzeżenie na licu (tekst i ikona „Poza trasą”, błąd)": [
+  "#FFB4AB",
+  "#24262A",
+  4.5
+ ],
+ "ciemny/zwiekszonyKontrast: ostrzeżenie na jezdni (tekst błędu poza komórką)": [
+  "#FFB4AB",
+  "#141517",
+  4.5
+ ],
+ "ciemny/zwiekszonyKontrast: obrzeże tablicy / przycisku / etykiety do jezdni (UI)": [
+  "#F0CFA8",
+  "#141517",
+  3
+ ],
+ "ciemny/zwiekszonyKontrast: sylwetka, znacznik rodzaju treści, ptaszek wyboru, przełącznik do lica (UI)": [
+  "#F0CFA8",
+  "#24262A",
+  3
+ ],
+ "ciemny/zwiekszonyKontrast: wypełnienie paska postępu do toru (UI)": [
+  "#F0CFA8",
+  "#5C4837",
+  3
+ ],
+ "ciemny/zwiekszonyKontrast: glif pauzy na brązie (UI)": [
+  "#141517",
+  "#F0CFA8",
+  3
+ ],
+ "ciemny/zwiekszonyKontrast: kreskowana ramka przycisku wyłączonego do lica (UI)": [
+  "#D0D3D7",
+  "#24262A",
+  3
+ ],
+ "ciemny/zwiekszonyKontrast: ikona ostrzeżenia na licu (UI)": [
+  "#FFB4AB",
+  "#24262A",
+  3
+ ]
+}

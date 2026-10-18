@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ikona, ekran startowy, intro — system Drogowskaz</title>
+<!--
+  E3: ikona aplikacji (180/60/29 pt, jasna i ciemna), ekran startowy (launch screen, expo-splash-screen) i koncepcja intro.
+  Barwy z tokenów (lico/braz jasny; tlo/lico/braz ciemny). Tablica wywiedziona z drogowskazów E-7…E-12/E-22b, nie kopia znaku.
+  Ikona: rysunek wektorowy w siatce 100 × 100; maska zaokrąglenia iOS symulowana (22,4 %), w pliku dla App Store narożniki proste.
+-->
+<link rel="stylesheet" href="tokeny.css">
+<link rel="stylesheet" href="system.css">
+<style>
+.ikony { display: flex; gap: 18px; align-items: flex-end; padding: 18px; background: #FFFFFF; }
+[data-theme="dark"] .ikony { background: #000000; }
+.ikona { display: block; border-radius: 22.4%; overflow: hidden; flex: none; }
+.ikony figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; font: 12px/1 "Tresc", sans-serif; color: #5E6266; }
+.ik-tlo { fill: var(--ik-tlo); } .ik-braz { fill: var(--ik-braz); } .ik-obrys { fill: none; stroke: var(--ik-braz); } .ik-okno { fill: var(--ik-tlo); }
+:root { --ik-tlo: var(--lico); --ik-braz: var(--braz); }
+[data-theme="dark"] { --ik-tlo: var(--tlo); --ik-braz: var(--braz); }
+main[data-ekran="ekran-startowy"] { align-items: center; justify-content: center; }
+.start-tab { width: 112px; height: 112px; }
+.klatki { display: flex; gap: 14px; padding: 14px; background: var(--strona); }
+.klatka { width: 180px; height: 390px; background: var(--tlo); position: relative; overflow: hidden; border-radius: 18px; }
+.klatka figcaption { position: absolute; left: 0; right: 0; bottom: 8px; text-align: center; font: 12px/1.3 "Tresc", sans-serif; color: var(--tekst2); }
+.klatka .tab { position: absolute; width: 112px; height: 112px; top: 130px; }
+.klatka .ekran-mini { position: absolute; inset: 0; padding: 40px 12px; }
+.klatka .ekran-mini b { display: block; font: 500 20px/1.2 "Jost", sans-serif; font-feature-settings: "ss01"; color: var(--tekst); margin-bottom: 10px; }
+.klatka .ekran-mini i { display: block; height: 44px; background: var(--lico); border-radius: 8px; margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<script src="wspolne.js"></script>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- glif tablicy: obrzeże + sylwetka + krawędź postępu (1/3) -->
+    <symbol id="ik-tablica" viewBox="0 0 100 100">
+      <rect x="11.5" y="11.5" width="77" height="77" rx="8" class="ik-obrys" stroke-width="7"/>
+      <g class="ik-braz"><rect x="20" y="68" width="60" height="5"/><rect x="37" y="38" width="26" height="30"/><polygon points="33,40 50,24 67,40"/><rect x="21" y="49" width="16" height="19"/><rect x="63" y="49" width="16" height="19"/><rect x="47.5" y="18" width="5" height="8"/></g>
+      <g class="ik-okno"><rect x="46" y="55" width="8" height="13"/><rect x="41" y="44" width="5" height="7"/><rect x="54" y="44" width="5" height="7"/></g>
+    </symbol>
+  </defs>
+</svg>
+<header class="opis">
+  <h1>Ikona, ekran startowy, intro</h1>
+  Ikona = tablica z sylwetką (ten sam element, który niesie dane w sesji; krawędź postępu w ikonie usunięta po rundzie 1 — przy 29 pt wyglądała jak wyszczerbiony róg). Ekran startowy: tło jezdni i sama tablica, bez nazwy i hasła (HIG: ekran startowy nie jest reklamą).
+</header>
+<div class="uklad">
+  <main data-ekran="ikony" style="width:auto;min-height:0" aria-label="Ikona aplikacji">
+    <div class="ikony">
+      <figure><svg class="ikona" width="180" height="180" viewBox="0 0 100 100"><rect width="100" height="100" class="ik-tlo"/><use href="#ik-tablica"/></svg>180</figure>
+      <figure><svg class="ikona" width="60" height="60" viewBox="0 0 100 100"><rect width="100" height="100" class="ik-tlo"/><use href="#ik-tablica"/></svg>60</figure>
+      <figure><svg class="ikona" width="29" height="29" viewBox="0 0 100 100"><rect width="100" height="100" class="ik-tlo"/><use href="#ik-tablica"/></svg>29</figure>
+    </div>
+  </main>
+
+  <main data-ekran="ekran-startowy" aria-label="Ekran startowy">
+    <svg class="start-tab" viewBox="0 0 100 100" aria-hidden="true" style="--ik-tlo:var(--tlo)"><use href="#ik-tablica"/></svg>
+  </main>
+
+  <main data-ekran="intro" style="width:auto;min-height:0" aria-label="Intro, trzy klatki">
+    <div class="klatki">
+      <figure class="klatka" style="margin:0"><svg class="tab" viewBox="0 0 100 100" style="left:150px;--ik-tlo:var(--lico)"><rect x="11" y="11" width="78" height="78" rx="8" fill="var(--lico)"/><use href="#ik-tablica"/></svg><figcaption>0 ms: tablica wjeżdża z prawej, jak mijany znak</figcaption></figure>
+      <figure class="klatka" style="margin:0"><svg class="tab" viewBox="0 0 100 100" style="left:34px;--ik-tlo:var(--lico)"><rect x="11" y="11" width="78" height="78" rx="8" fill="var(--lico)"/><use href="#ik-tablica"/></svg><figcaption>ok. 600 ms: zatrzymanie, sylwetka już na miejscu</figcaption></figure>
+      <figure class="klatka" style="margin:0"><div class="ekran-mini"><b>Zanim zaczniesz</b><i></i><i></i><i></i></div><figcaption>ok. 1000 ms: cięcie do pierwszego ekranu</figcaption></figure>
+    </div>
+  </main>
+</div>
+</body>
+</html>

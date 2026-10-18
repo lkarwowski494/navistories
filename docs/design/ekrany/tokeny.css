@@ -1,0 +1,119 @@
+/* WYGENEROWANE z docs/design/tokeny.ts przez narzedzia/css-z-tokenow.mjs — nie edytuj ręcznie. */
+:root {
+  --tlo: #ECEDEE;
+  --lico: #FFFFFF;
+  --braz: #6B3815;
+  --braz-nacisk: #4F290F;
+  --braz-tor: #F3ECE6;
+  --na-brazie: #FFFFFF;
+  --tekst: #1D1F21;
+  --tekst2: #5E6266;
+  --ostrz: #B20013;
+  --separator: #D3D5D8;
+}
+:root[data-kontrast="tak"] {
+  --tlo: #E4E5E7;
+  --lico: #FFFFFF;
+  --braz: #4F290F;
+  --braz-nacisk: #361B08;
+  --braz-tor: #E6D6C6;
+  --na-brazie: #FFFFFF;
+  --tekst: #0F1011;
+  --tekst2: #3B3E42;
+  --ostrz: #8E000F;
+  --separator: #9EA2A7;
+}
+:root[data-theme="dark"] {
+  --tlo: #1C1E21;
+  --lico: #2A2C30;
+  --braz: #D9A877;
+  --braz-nacisk: #E9C59F;
+  --braz-tor: #4A3A2D;
+  --na-brazie: #1C1E21;
+  --tekst: #F1EEEA;
+  --tekst2: #AEB2B7;
+  --ostrz: #FF8A80;
+  --separator: #3C3F44;
+}
+:root[data-theme="dark"][data-kontrast="tak"] {
+  --tlo: #141517;
+  --lico: #24262A;
+  --braz: #F0CFA8;
+  --braz-nacisk: #F8E2C8;
+  --braz-tor: #5C4837;
+  --na-brazie: #141517;
+  --tekst: #FFFFFF;
+  --tekst2: #D0D3D7;
+  --ostrz: #FFB4AB;
+  --separator: #6A6E74;
+}
+:root {
+  --od-xxs: 4px;
+  --od-xs: 8px;
+  --od-s: 12px;
+  --od-m: 16px;
+  --od-margines: 20px;
+  --od-l: 24px;
+  --od-xl: 32px;
+  --od-xxl: 48px;
+  --r-tablica: 10px;
+  --r-tablica-mala: 8px;
+  --r-przycisk-pauzy: 22px;
+  --r-przycisk: 12px;
+  --r-komorka-grupy: 10px;
+  --r-etykieta: 6px;
+  --r-znacznik: 3px;
+  --ob-tablica: 6px;
+  --ob-tablica-mala: 3px;
+  --ob-przycisk: 2px;
+  --ob-etykieta: 2px;
+  --postep-h: 10px;
+  --cel-min: 44px;
+  --cel-przycisk: 56px;
+  --cel-pauza: 132px;
+  --fs-tytul-duzy: calc(2.125rem * min(var(--dt-tresc, 1), 1.5));
+  --lh-tytul-duzy: 1.206;
+  --fw-tytul-duzy: 500;
+  --fs-nazwa-miejsca: calc(1.875rem * min(var(--dt-tresc, 1), 1.8));
+  --lh-nazwa-miejsca: 1.133;
+  --fw-nazwa-miejsca: 500;
+  --fs-tytul-sekcji: calc(1.5rem * min(var(--dt-tresc, 1), 2.21));
+  --lh-tytul-sekcji: 1.208;
+  --fw-tytul-sekcji: 500;
+  --fs-odleglosc: calc(1.5rem * min(var(--dt-tresc, 1), 2.21));
+  --lh-odleglosc: 1.000;
+  --fw-odleglosc: 500;
+  --fs-tytul-wiersza: calc(1.25rem * min(var(--dt-tresc, 1), 2.65));
+  --lh-tytul-wiersza: 1.200;
+  --fw-tytul-wiersza: 500;
+  --fs-przycisk: calc(1.1875rem * min(var(--dt-tresc, 1), 2.79));
+  --lh-przycisk: 1.158;
+  --fw-przycisk: 500;
+  --fs-przycisk-glowny: calc(1.1875rem * min(var(--dt-tresc, 1), 2.79));
+  --lh-przycisk-glowny: 1.158;
+  --fw-przycisk-glowny: 600;
+  --fs-etykieta-rodzaju: calc(1.125rem * min(var(--dt-tresc, 1), 2));
+  --lh-etykieta-rodzaju: 1.111;
+  --fw-etykieta-rodzaju: 500;
+  --fs-body: calc(1.0625rem * min(var(--dt-tresc, 1), 3.12));
+  --lh-body: 1.294;
+  --fw-body: 400;
+  --fs-headline: calc(1.0625rem * min(var(--dt-tresc, 1), 3.12));
+  --lh-headline: 1.294;
+  --fw-headline: 600;
+  --fs-callout: calc(1rem * min(var(--dt-tresc, 1), 3.12));
+  --lh-callout: 1.313;
+  --fw-callout: 400;
+  --fs-subhead: calc(0.9375rem * min(var(--dt-tresc, 1), 3.12));
+  --lh-subhead: 1.333;
+  --fw-subhead: 400;
+  --fs-footnote: calc(0.8125rem * min(var(--dt-tresc, 1), 3.12));
+  --lh-footnote: 1.385;
+  --fw-footnote: 400;
+}
+:root[data-kontrast="tak"] {
+  --ob-tablica: 8px;
+  --ob-tablica-mala: 4px;
+  --ob-przycisk: 3px;
+  --ob-etykieta: 3px;
+}

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Koniec podróży i źródła — system Drogowskaz</title>
+<!--
+  E3: koniec podróży (EkranSesji.tsx, phase stopped), Źródła (EkranZrodel.tsx), O aplikacji (EkranOAplikacji.tsx).
+  Teksty: teksty.ts. [PRZYKŁAD] tytuły historii, instytucje i adresy (domena example.org celowo — to nie są źródła).
+  Osoba redakcji: w aplikacji z konfiguracji (REDAKCJA_OSOBA); w makiecie znacznik.
+-->
+<link rel="stylesheet" href="tokeny.css">
+<link rel="stylesheet" href="system.css">
+</head>
+<body>
+<script src="wspolne.js"></script>
+<header class="opis">
+  <h1>Koniec podróży, Źródła, O aplikacji</h1>
+  Źródła to wyróżnik produktu: instytucja wyżej niż adres, cały wiersz otwiera stronę. Treść: na iOS SF Pro, w makiecie zastępczo Inter. Dane: [PRZYKŁAD], adresy example.org.
+</header>
+
+<div class="uklad">
+
+  <main data-ekran="koniec-podrozy" aria-label="Podróż zakończona">
+    <div class="status"><span>17:12</span><span>5G</span></div>
+    <div class="nav"></div>
+    <h1 class="duzy-tytul t">Podróż zakończona</h1>
+    <div class="wn" style="gap:20px">
+      <p class="akapit">Wysłuchane: 4 historie, 15 minut.</p>
+      <section class="sekcja">
+        <h2>Wysłuchane historie</h2>
+        <div class="grupa">
+          <div class="wiersz" role="button" aria-label="Źródła: Kościół w Garwolinie"><span class="miniatura"><svg viewBox="0 0 240 110"><use href="#kosciol"/></svg></span><span class="tx"><span class="t">Kościół w Garwolinie</span><small>Źródła</small></span><svg class="chevron" viewBox="0 0 9 15"><path d="M1.5 1.5 7.5 7.5 1.5 13.5"/></svg></div>
+          <div class="wiersz" role="button" aria-label="Źródła: Twierdza Dęblin"><span class="miniatura"><svg viewBox="0 0 240 110"><use href="#zamek"/></svg></span><span class="tx"><span class="t">Twierdza Dęblin</span><small>Źródła</small></span><svg class="chevron" viewBox="0 0 9 15"><path d="M1.5 1.5 7.5 7.5 1.5 13.5"/></svg></div>
+          <div class="wiersz" role="button" aria-label="Źródła: Pałac w Kozłówce"><span class="miniatura"><svg viewBox="0 0 240 110"><use href="#palac"/></svg></span><span class="tx"><span class="t">Pałac w Kozłówce</span><small>Źródła</small></span><svg class="chevron" viewBox="0 0 9 15"><path d="M1.5 1.5 7.5 7.5 1.5 13.5"/></svg></div>
+          <div class="wiersz" role="button" aria-label="Źródła: Ratusz w Zamościu"><span class="miniatura"><svg viewBox="0 0 240 110"><use href="#ratusz"/></svg></span><span class="tx"><span class="t">Ratusz w Zamościu</span><small>Źródła</small></span><svg class="chevron" viewBox="0 0 9 15"><path d="M1.5 1.5 7.5 7.5 1.5 13.5"/></svg></div>
+        </div>
+      </section>
+      <div class="spacer"></div>
+      <button class="btn gl">Nowa podróż</button>
+      <p class="ai">Tekst i głos wygenerowane z pomocą AI. Fakty sprawdzone w źródłach.</p>
+    </div>
+  </main>
+
+  <main data-ekran="zrodla" aria-label="Źródła">
+    <div class="status"><span>17:13</span><span>5G</span></div>
+    <div class="nav"><span class="wstecz"><svg viewBox="0 0 12 20"><path d="M10 2 2 10l8 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Wysłuchane</span></div>
+    <h1 class="duzy-tytul t">Pałac w Kozłówce</h1>
+    <div class="wn" style="gap:20px">
+      <div class="etykiety" aria-label="Rodzaje treści w tej historii: fakty, legenda">
+        <span class="etykieta t" aria-hidden="true"><svg class="znak" viewBox="0 0 20 20"><rect class="pelny" x="1.5" y="1.5" width="17" height="17" rx="3"/></svg>Fakty</span>
+        <span class="etykieta t" aria-hidden="true"><svg class="znak" viewBox="0 0 20 20"><rect class="kreski" x="1.5" y="1.5" width="17" height="17" rx="3"/><rect class="obrys" x="1.25" y="1.25" width="17.5" height="17.5" rx="3"/></svg>Legenda</span>
+      </div>
+      <section class="sekcja">
+        <h2>Informacje w tej historii pochodzą z:</h2>
+        <div class="grupa">
+          <div class="wiersz" role="link" aria-label="Otwórz źródło: Narodowy Instytut Dziedzictwa"><span class="tx"><b style="font-weight:600">Narodowy Instytut Dziedzictwa</b><a>example.org/rejestr-zabytkow/kozlowka</a></span><svg class="zewn" viewBox="0 0 18 18"><path d="M10 2h6v6M16 2 8 10M14 11v5H2V4h5"/></svg></div>
+          <div class="wiersz" role="link" aria-label="Otwórz źródło: Muzeum Zamoyskich w Kozłówce"><span class="tx"><b style="font-weight:600">Muzeum Zamoyskich w Kozłówce</b><a>example.org/muzeum/historia-palacu</a></span><svg class="zewn" viewBox="0 0 18 18"><path d="M10 2h6v6M16 2 8 10M14 11v5H2V4h5"/></svg></div>
+          <div class="wiersz" role="link" aria-label="Otwórz źródło: Encyklopedia PWN"><span class="tx"><b style="font-weight:600">Encyklopedia PWN</b><a>example.org/encyklopedia/kozlowka</a></span><svg class="zewn" viewBox="0 0 18 18"><path d="M10 2h6v6M16 2 8 10M14 11v5H2V4h5"/></svg></div>
+        </div>
+        <p class="stopka">Tekst i głos tej historii zostały wygenerowane z pomocą AI.</p>
+      </section>
+    </div>
+  </main>
+
+  <main data-ekran="o-aplikacji" aria-label="O aplikacji">
+    <div class="status"><span>9:44</span><span>5G</span></div>
+    <div class="nav"><span class="wstecz"><svg viewBox="0 0 12 20"><path d="M10 2 2 10l8 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>NaviStories</span></div>
+    <h1 class="duzy-tytul t">O aplikacji</h1>
+    <div class="wn" style="gap:20px">
+      <section class="sekcja">
+        <h2>Redakcja</h2>
+        <div class="grupa"><div class="wiersz"><span class="tx">Za treści historii redakcyjnie odpowiada [osoba z konfiguracji].<small>Kontakt z redakcją zostanie uzupełniony.</small></span></div></div>
+      </section>
+      <section class="sekcja">
+        <h2>Jak powstają historie</h2>
+        <div class="grupa"><div class="wiersz"><span class="tx">Teksty historii są przygotowywane z pomocą sztucznej inteligencji (AI). Fakty sprawdza człowiek względem źródeł, które podajemy przy każdej historii. Głos lektora jest wygenerowany przez AI.</span></div></div>
+      </section>
+      <section class="sekcja">
+        <h2>Dane map</h2>
+        <div class="grupa"><div class="wiersz"><span class="tx">Dane tras: © OpenStreetMap contributors, licencja ODbL.</span></div></div>
+      </section>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

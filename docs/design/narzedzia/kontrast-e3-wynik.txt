@@ -1,0 +1,68 @@
+# E3 kontrast — 2026-10-18T17:52Z; node v22.22.0
+# node narzedzia/pary-e3.mjs tokeny.ts narzedzia/pary-e3.json && node narzedzia/kontrast.mjs narzedzia/pary-e3.json
+64 par → narzedzia/pary-e3.json
+OK   14.10:1 (min 4.5) jasny/standard: tekst na jezdni (trasa, nagłówki ekranów, „Zakończ podróż”) #1D1F21 na #ECEDEE
+OK   16.53:1 (min 4.5) jasny/standard: tekst na licu (komórki list, treść ujawnienia AI) #1D1F21 na #FFFFFF
+OK   5.25:1 (min 4.5) jasny/standard: tekst drugorzędny na jezdni (oznaczenie AI, podpowiedź, nagłówek sekcji) #5E6266 na #ECEDEE
+OK   6.15:1 (min 4.5) jasny/standard: tekst drugorzędny na licu (czas, opis komórki, przycisk wyłączony) #5E6266 na #FFFFFF
+OK   9.54:1 (min 4.5) jasny/standard: brąz na licu (nazwa miejsca, km, etykieta rodzaju treści, linki, przycisk drugorzędny) #6B3815 na #FFFFFF
+OK   8.14:1 (min 4.5) jasny/standard: brąz na jezdni (link „Źródła” poza komórką) #6B3815 na #ECEDEE
+OK   9.54:1 (min 4.5) jasny/standard: tekst na brązie (przycisk główny) #FFFFFF na #6B3815
+OK   12.68:1 (min 4.5) jasny/standard: tekst na brązie wciśniętym #FFFFFF na #4F290F
+OK   7.24:1 (min 4.5) jasny/standard: ostrzeżenie na licu (tekst i ikona „Poza trasą”, błąd) #B20013 na #FFFFFF
+OK   6.17:1 (min 4.5) jasny/standard: ostrzeżenie na jezdni (tekst błędu poza komórką) #B20013 na #ECEDEE
+OK   8.14:1 (min 3) jasny/standard: obrzeże tablicy / przycisku / etykiety do jezdni (UI) #6B3815 na #ECEDEE
+OK   9.54:1 (min 3) jasny/standard: sylwetka, znacznik rodzaju treści, ptaszek wyboru, przełącznik do lica (UI) #6B3815 na #FFFFFF
+OK   8.15:1 (min 3) jasny/standard: wypełnienie paska postępu do toru (UI) #6B3815 na #F3ECE6
+OK   9.54:1 (min 3) jasny/standard: glif pauzy na brązie (UI) #FFFFFF na #6B3815
+OK   6.15:1 (min 3) jasny/standard: kreskowana ramka przycisku wyłączonego do lica (UI) #5E6266 na #FFFFFF
+OK   7.24:1 (min 3) jasny/standard: ikona ostrzeżenia na licu (UI) #B20013 na #FFFFFF
+OK   15.11:1 (min 4.5) jasny/zwiekszonyKontrast: tekst na jezdni (trasa, nagłówki ekranów, „Zakończ podróż”) #0F1011 na #E4E5E7
+OK   19.05:1 (min 4.5) jasny/zwiekszonyKontrast: tekst na licu (komórki list, treść ujawnienia AI) #0F1011 na #FFFFFF
+OK   8.53:1 (min 4.5) jasny/zwiekszonyKontrast: tekst drugorzędny na jezdni (oznaczenie AI, podpowiedź, nagłówek sekcji) #3B3E42 na #E4E5E7
+OK   10.75:1 (min 4.5) jasny/zwiekszonyKontrast: tekst drugorzędny na licu (czas, opis komórki, przycisk wyłączony) #3B3E42 na #FFFFFF
+OK   12.68:1 (min 4.5) jasny/zwiekszonyKontrast: brąz na licu (nazwa miejsca, km, etykieta rodzaju treści, linki, przycisk drugorzędny) #4F290F na #FFFFFF
+OK   10.06:1 (min 4.5) jasny/zwiekszonyKontrast: brąz na jezdni (link „Źródła” poza komórką) #4F290F na #E4E5E7
+OK   12.68:1 (min 4.5) jasny/zwiekszonyKontrast: tekst na brązie (przycisk główny) #FFFFFF na #4F290F
+OK   15.94:1 (min 4.5) jasny/zwiekszonyKontrast: tekst na brązie wciśniętym #FFFFFF na #361B08
+OK   9.74:1 (min 4.5) jasny/zwiekszonyKontrast: ostrzeżenie na licu (tekst i ikona „Poza trasą”, błąd) #8E000F na #FFFFFF
+OK   7.72:1 (min 4.5) jasny/zwiekszonyKontrast: ostrzeżenie na jezdni (tekst błędu poza komórką) #8E000F na #E4E5E7
+OK   10.06:1 (min 3) jasny/zwiekszonyKontrast: obrzeże tablicy / przycisku / etykiety do jezdni (UI) #4F290F na #E4E5E7
+OK   12.68:1 (min 3) jasny/zwiekszonyKontrast: sylwetka, znacznik rodzaju treści, ptaszek wyboru, przełącznik do lica (UI) #4F290F na #FFFFFF
+OK   8.93:1 (min 3) jasny/zwiekszonyKontrast: wypełnienie paska postępu do toru (UI) #4F290F na #E6D6C6
+OK   12.68:1 (min 3) jasny/zwiekszonyKontrast: glif pauzy na brązie (UI) #FFFFFF na #4F290F
+OK   10.75:1 (min 3) jasny/zwiekszonyKontrast: kreskowana ramka przycisku wyłączonego do lica (UI) #3B3E42 na #FFFFFF
+OK   9.74:1 (min 3) jasny/zwiekszonyKontrast: ikona ostrzeżenia na licu (UI) #8E000F na #FFFFFF
+OK   14.45:1 (min 4.5) ciemny/standard: tekst na jezdni (trasa, nagłówki ekranów, „Zakończ podróż”) #F1EEEA na #1C1E21
+OK   12.09:1 (min 4.5) ciemny/standard: tekst na licu (komórki list, treść ujawnienia AI) #F1EEEA na #2A2C30
+OK   7.84:1 (min 4.5) ciemny/standard: tekst drugorzędny na jezdni (oznaczenie AI, podpowiedź, nagłówek sekcji) #AEB2B7 na #1C1E21
+OK   6.56:1 (min 4.5) ciemny/standard: tekst drugorzędny na licu (czas, opis komórki, przycisk wyłączony) #AEB2B7 na #2A2C30
+OK   6.54:1 (min 4.5) ciemny/standard: brąz na licu (nazwa miejsca, km, etykieta rodzaju treści, linki, przycisk drugorzędny) #D9A877 na #2A2C30
+OK   7.81:1 (min 4.5) ciemny/standard: brąz na jezdni (link „Źródła” poza komórką) #D9A877 na #1C1E21
+OK   7.81:1 (min 4.5) ciemny/standard: tekst na brązie (przycisk główny) #1C1E21 na #D9A877
+OK   10.30:1 (min 4.5) ciemny/standard: tekst na brązie wciśniętym #1C1E21 na #E9C59F
+OK   6.13:1 (min 4.5) ciemny/standard: ostrzeżenie na licu (tekst i ikona „Poza trasą”, błąd) #FF8A80 na #2A2C30
+OK   7.32:1 (min 4.5) ciemny/standard: ostrzeżenie na jezdni (tekst błędu poza komórką) #FF8A80 na #1C1E21
+OK   7.81:1 (min 3) ciemny/standard: obrzeże tablicy / przycisku / etykiety do jezdni (UI) #D9A877 na #1C1E21
+OK   6.54:1 (min 3) ciemny/standard: sylwetka, znacznik rodzaju treści, ptaszek wyboru, przełącznik do lica (UI) #D9A877 na #2A2C30
+OK   5.08:1 (min 3) ciemny/standard: wypełnienie paska postępu do toru (UI) #D9A877 na #4A3A2D
+OK   7.81:1 (min 3) ciemny/standard: glif pauzy na brązie (UI) #1C1E21 na #D9A877
+OK   6.56:1 (min 3) ciemny/standard: kreskowana ramka przycisku wyłączonego do lica (UI) #AEB2B7 na #2A2C30
+OK   6.13:1 (min 3) ciemny/standard: ikona ostrzeżenia na licu (UI) #FF8A80 na #2A2C30
+OK   18.27:1 (min 4.5) ciemny/zwiekszonyKontrast: tekst na jezdni (trasa, nagłówki ekranów, „Zakończ podróż”) #FFFFFF na #141517
+OK   15.15:1 (min 4.5) ciemny/zwiekszonyKontrast: tekst na licu (komórki list, treść ujawnienia AI) #FFFFFF na #24262A
+OK   12.16:1 (min 4.5) ciemny/zwiekszonyKontrast: tekst drugorzędny na jezdni (oznaczenie AI, podpowiedź, nagłówek sekcji) #D0D3D7 na #141517
+OK   10.09:1 (min 4.5) ciemny/zwiekszonyKontrast: tekst drugorzędny na licu (czas, opis komórki, przycisk wyłączony) #D0D3D7 na #24262A
+OK   10.24:1 (min 4.5) ciemny/zwiekszonyKontrast: brąz na licu (nazwa miejsca, km, etykieta rodzaju treści, linki, przycisk drugorzędny) #F0CFA8 na #24262A
+OK   12.35:1 (min 4.5) ciemny/zwiekszonyKontrast: brąz na jezdni (link „Źródła” poza komórką) #F0CFA8 na #141517
+OK   12.35:1 (min 4.5) ciemny/zwiekszonyKontrast: tekst na brązie (przycisk główny) #141517 na #F0CFA8
+OK   14.53:1 (min 4.5) ciemny/zwiekszonyKontrast: tekst na brązie wciśniętym #141517 na #F8E2C8
+OK   8.93:1 (min 4.5) ciemny/zwiekszonyKontrast: ostrzeżenie na licu (tekst i ikona „Poza trasą”, błąd) #FFB4AB na #24262A
+OK   10.76:1 (min 4.5) ciemny/zwiekszonyKontrast: ostrzeżenie na jezdni (tekst błędu poza komórką) #FFB4AB na #141517
+OK   12.35:1 (min 3) ciemny/zwiekszonyKontrast: obrzeże tablicy / przycisku / etykiety do jezdni (UI) #F0CFA8 na #141517
+OK   10.24:1 (min 3) ciemny/zwiekszonyKontrast: sylwetka, znacznik rodzaju treści, ptaszek wyboru, przełącznik do lica (UI) #F0CFA8 na #24262A
+OK   5.82:1 (min 3) ciemny/zwiekszonyKontrast: wypełnienie paska postępu do toru (UI) #F0CFA8 na #5C4837
+OK   12.35:1 (min 3) ciemny/zwiekszonyKontrast: glif pauzy na brązie (UI) #141517 na #F0CFA8
+OK   10.09:1 (min 3) ciemny/zwiekszonyKontrast: kreskowana ramka przycisku wyłączonego do lica (UI) #D0D3D7 na #24262A
+OK   8.93:1 (min 3) ciemny/zwiekszonyKontrast: ikona ostrzeżenia na licu (UI) #FFB4AB na #24262A
+kod wyjścia: 0

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wybór trasy i spaceru — system Drogowskaz</title>
+<!--
+  E3: EkranSamochodu.tsx (trasa + motywy) i EkranSpaceru.tsx (motyw + długość + spacery), gałąź iteracja-0/aplikacja.
+  Kontrolki systemowe iOS: lista grupowana, ptaszek (wybór jednego), przełącznik (motywy), segmenty (długość).
+  [PRZYKŁAD] nazwy tras, motywów, spacerów, liczby historii i kilometry.
+-->
+<link rel="stylesheet" href="tokeny.css">
+<link rel="stylesheet" href="system.css">
+</head>
+<body>
+<script src="wspolne.js"></script>
+<header class="opis">
+  <h1>Wybór: samochód i spacer</h1>
+  Kontrolki systemowe; marka tylko w kroju tytułów, ptaszku, przełączniku i przycisku „Dalej”. Treść: na iOS SF Pro, w makiecie zastępczo Inter. Dane: [PRZYKŁAD].
+</header>
+
+<div class="uklad">
+
+  <main data-ekran="samochod" aria-label="Samochód">
+    <div class="status"><span>9:43</span><span>5G</span></div>
+    <div class="nav"><span class="wstecz"><svg viewBox="0 0 12 20"><path d="M10 2 2 10l8 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>NaviStories</span></div>
+    <h1 class="duzy-tytul t">Samochód</h1>
+    <div class="wn" style="gap:20px">
+      <section class="sekcja">
+        <h2>Trasa</h2>
+        <div class="grupa" role="radiogroup">
+          <div class="wiersz" role="radio" aria-checked="true"><span class="tx">Warszawa – Zamość<small>18 historii, ok. 250 km</small></span><svg class="ptaszek" viewBox="0 0 18 18"><path d="M2.5 9.5 7 14 15.5 4"/></svg></div>
+          <div class="wiersz" role="radio" aria-checked="false"><span class="tx">Kraków – Zakopane<small>11 historii, ok. 110 km</small></span></div>
+        </div>
+      </section>
+      <section class="sekcja">
+        <h2>Motywy</h2>
+        <div class="grupa">
+          <div class="wiersz" role="switch" aria-checked="true"><span class="tx">Zamki i pałace</span><span class="przelacznik wl"></span></div>
+          <div class="wiersz" role="switch" aria-checked="true"><span class="tx">Ludzie i rody</span><span class="przelacznik wl"></span></div>
+          <div class="wiersz" role="switch" aria-checked="false"><span class="tx">Wojny i powstania</span><span class="przelacznik"></span></div>
+        </div>
+        <p class="stopka">Wybierz, o czym chcesz słuchać.</p>
+      </section>
+      <div class="spacer"></div>
+      <button class="btn gl">Dalej</button>
+    </div>
+  </main>
+
+  <main data-ekran="spacer" aria-label="Spacer">
+    <div class="status"><span>9:43</span><span>5G</span></div>
+    <div class="nav"><span class="wstecz"><svg viewBox="0 0 12 20"><path d="M10 2 2 10l8 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>NaviStories</span></div>
+    <h1 class="duzy-tytul t">Spacer</h1>
+    <div class="wn" style="gap:20px">
+      <section class="sekcja">
+        <h2>Motyw</h2>
+        <div class="grupa" role="radiogroup">
+          <div class="wiersz" role="radio" aria-checked="true"><span class="tx">Stare Miasto</span><svg class="ptaszek" viewBox="0 0 18 18"><path d="M2.5 9.5 7 14 15.5 4"/></svg></div>
+          <div class="wiersz" role="radio" aria-checked="false"><span class="tx">Ludzie i rody</span></div>
+        </div>
+      </section>
+      <section class="sekcja">
+        <h2>Długość</h2>
+        <div class="segmenty" role="radiogroup"><span class="wyb" role="radio" aria-checked="true">ok. 30 min</span><span role="radio" aria-checked="false">ok. 60 min</span><span role="radio" aria-checked="false">ok. 90 min</span></div>
+      </section>
+      <section class="sekcja">
+        <h2>Spacery</h2>
+        <div class="grupa">
+          <div class="wiersz" role="button"><span class="tx"><span class="t">Lublin: od Bramy Krakowskiej do Zamku</span><small>7 historii, ok. 30 min</small></span><svg class="chevron" viewBox="0 0 9 15"><path d="M1.5 1.5 7.5 7.5 1.5 13.5"/></svg></div>
+          <div class="wiersz" role="button"><span class="tx"><span class="t">Zamość: Rynek Wielki</span><small>5 historii, ok. 25 min</small></span><svg class="chevron" viewBox="0 0 9 15"><path d="M1.5 1.5 7.5 7.5 1.5 13.5"/></svg></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

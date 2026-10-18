@@ -1,0 +1,125 @@
+/*
+ * System „Drogowskaz” — wspólne style makiet E3. Wartości barw, odstępów, promieni i rozmiarów
+ * pochodzą wyłącznie z tokeny.css (generowany z docs/design/tokeny.ts). Tu tylko układ.
+ * Konwencja zrzutów (moduł „render-i-krytyka”): stan ekranu = <main data-ekran>, szerokość --w,
+ * AX5 = --dt-tytul 1.8 / --dt-tresc 3.1 (uproszczenie tabeli HIG).
+ */
+@font-face { font-family: "Jost"; src: url("../fonty/jost/Jost.ttf") format("truetype"); font-weight: 100 900; }
+/* Treść: na iOS krój systemowy SF Pro. W makiecie ZASTĘPCZO Inter z systemu Linux (niedołączany) — nie oceniać. */
+@font-face { font-family: "Tresc"; src: local("Inter"), local("Inter Regular"); font-weight: 100 900; }
+
+* { box-sizing: border-box; }
+html { font-size: 16px; --strona: #F6F6F5; }
+html[data-theme="dark"] { --strona: #0F1012; }
+body { margin: 0; overflow-wrap: break-word; background: var(--strona); color: var(--tekst); font-family: "Tresc", sans-serif; }
+.opis { max-width: 1300px; margin: 0 auto; padding: 20px 16px 4px; font-size: 14px; line-height: 1.45; color: var(--tekst2); }
+.opis h1 { font: 500 26px/1.2 "Jost", sans-serif; font-feature-settings: "ss01"; color: var(--tekst); margin: 0 0 4px; }
+.uklad { display: flex; flex-wrap: wrap; gap: 28px; justify-content: center; align-items: flex-start; padding: 16px 0 40px; }
+.nw { white-space: nowrap; }
+.t { font-family: "Jost", sans-serif; font-feature-settings: "ss01"; }
+
+/* ─── ekran ─── */
+main[data-ekran] { width: var(--w, 390px); min-height: 844px; background: var(--tlo); display: flex; flex-direction: column; position: relative; }
+.status { height: 50px; flex: none; display: flex; justify-content: space-between; align-items: flex-end; padding: 0 28px 6px; font: 600 15px/1 "Tresc", sans-serif; color: var(--tekst); }
+.wn { flex: 1; display: flex; flex-direction: column; gap: var(--od-s); padding: var(--od-s) var(--od-margines) var(--od-margines); }
+.spacer { flex: 1; }
+
+/* pasek nawigacji iOS: przycisk wstecz + duży tytuł (krój tytułów) */
+.nav { flex: none; padding: 0 var(--od-xs); min-height: 44px; display: flex; align-items: center; color: var(--braz); font-size: calc(1.0625rem * min(var(--dt-tresc, 1), 1.353)); }
+/* przyciski paska nawigacji: wzrost ograniczony do xxxLarge (×1,353); większe rozmiary obsługuje systemowy Large Content Viewer [DO SPRAWDZENIA na urządzeniu] */
+.nav .wstecz { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nav .wstecz { display: inline-flex; align-items: center; gap: 2px; min-height: 44px; padding: 0 8px; }
+.nav .wstecz svg { width: 12px; height: 20px; flex: none; }
+.duzy-tytul { margin: 0; padding: 2px var(--od-margines) var(--od-xs); font-size: var(--fs-tytul-duzy); line-height: var(--lh-tytul-duzy); font-weight: var(--fw-tytul-duzy); color: var(--tekst); overflow-wrap: break-word; }
+
+/* ─── etykieta rodzaju treści (spec. P16): znacznik kształtu + słowo ─── */
+.etykieta { max-width: 100%; align-self: flex-start; display: inline-flex; align-items: center; gap: .5em; font-size: var(--fs-etykieta-rodzaju); line-height: 1; font-weight: var(--fw-etykieta-rodzaju); color: var(--braz); border: var(--ob-etykieta) solid var(--braz); border-radius: var(--r-etykieta); padding: .42em .65em; background: var(--lico); white-space: nowrap; }
+.znak { width: 1.05em; height: 1.05em; flex: none; }
+.znak .pelny { fill: var(--braz); } .znak .kreski { fill: url(#kreski); } .znak .obrys { fill: none; stroke: var(--braz); stroke-width: 2.5; }
+.etykiety { display: flex; flex-wrap: wrap; gap: var(--od-xs); }
+.etykiety .etykieta { align-self: auto; }
+
+/* ─── tablica: element firmowy ─── */
+.tablica { background: var(--lico); border: var(--ob-tablica) solid var(--braz); border-radius: var(--r-tablica); position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--braz); overflow: hidden; }
+.postep { position: absolute; left: 0; right: 0; bottom: 0; height: var(--postep-h); background: var(--braz-tor); }
+.postep i { display: block; height: 100%; background: var(--braz); }
+.sylw { width: 72%; max-width: 250px; height: auto; flex: none; color: var(--braz); }
+.pauza { width: var(--cel-pauza); height: var(--cel-pauza); border-radius: var(--r-przycisk-pauzy); background: var(--braz); display: grid; place-items: center; flex: none; }
+.pauza svg { width: 54px; height: 54px; fill: var(--na-brazie); }
+.nazwa { margin: 0; text-align: center; font-size: var(--fs-nazwa-miejsca); line-height: var(--lh-nazwa-miejsca); font-weight: var(--fw-nazwa-miejsca); overflow-wrap: break-word; max-width: 100%; }
+.kier { display: flex; align-items: center; gap: 10px; font-size: var(--fs-odleglosc); line-height: 1; font-weight: var(--fw-odleglosc); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.kier svg { width: 44px; height: 26px; fill: currentColor; flex: none; }
+.czas { font-size: var(--fs-subhead); color: var(--tekst2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* tablica w ruchu: wypełnia ekran, jeden cel = pauza */
+.w-ruchu .tablica { flex: 1; min-height: 380px; gap: 22px; padding: 16px 12px calc(var(--postep-h) + 16px); }
+.steruj { margin: 0; text-align: center; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--tekst2); }
+
+/* tablica na postoju: rośnie, żeby nie zostawiać pustego pasa (rekomendacja C) */
+.postoj .tablica { flex: 1 0 auto; gap: var(--od-s); padding: var(--od-l) var(--od-m) calc(var(--postep-h) + var(--od-l)); }
+.postoj .sylw { width: 64%; max-width: 230px; }
+
+/* stan bez opowieści / ostrzeżenie w tablicy */
+.tablica .piktogram { width: 46%; max-width: 170px; height: auto; color: var(--braz); }
+.tablica .piktogram .ostrz-znak { color: var(--ostrz); }
+.tablica .piktogram .droga-krawedz { color: var(--braz); }
+
+/* ─── przyciski ─── */
+.przyciski { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, calc(8.5rem * var(--dt-tytul, 1))), 1fr)); gap: var(--od-s); }
+.btn { min-height: var(--cel-przycisk); border-radius: var(--r-przycisk); border: var(--ob-przycisk) solid var(--braz); background: var(--lico); color: var(--braz); font-family: "Jost", sans-serif; font-feature-settings: "ss01"; font-size: var(--fs-przycisk); line-height: var(--lh-przycisk); font-weight: var(--fw-przycisk); display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 14px; text-align: center; width: 100%; }
+.btn.gl { background: var(--braz); color: var(--na-brazie); font-weight: var(--fw-przycisk-glowny); }
+.btn.duzy { min-height: 88px; }
+.btn[disabled] { border-style: dashed; border-color: var(--tekst2); color: var(--tekst2); background: var(--lico); }
+.btn svg { width: 20px; height: 20px; fill: currentColor; flex: none; }
+.link { min-height: var(--cel-min); border: none; background: none; color: var(--tekst); font: inherit; font-size: var(--fs-body); text-decoration: underline; text-underline-offset: 3px; align-self: center; padding: 0 12px; }
+
+/* następna opowieść: mała tablica */
+.dalej { display: flex; flex-wrap: wrap; align-items: center; gap: var(--od-s); border: var(--ob-tablica-mala) solid var(--braz); border-radius: var(--r-tablica-mala); background: var(--lico); padding: 10px 12px; color: var(--braz); }
+.dalej > svg { width: 56px; height: 40px; flex: none; }
+.dalej .tt { flex: 1 1 calc(11rem * var(--dt-tresc, 1)); min-width: 0; }
+.dalej .tt b { display: block; font-size: var(--fs-tytul-wiersza); line-height: var(--lh-tytul-wiersza); font-weight: var(--fw-tytul-wiersza); }
+.dalej .tt span { font-size: var(--fs-subhead); line-height: var(--lh-subhead); color: var(--tekst2); }
+
+/* oznaczenie AI: stałe, małe, statyczne */
+.ai { margin: 0; text-align: center; font-size: var(--fs-footnote); line-height: var(--lh-footnote); color: var(--tekst2); }
+
+/* trasa nad tablicą */
+.trasa { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 12px; font-size: var(--fs-subhead); line-height: var(--lh-subhead); color: var(--tekst2); }
+.trasa b { color: var(--tekst); font-weight: 600; }
+
+/* ─── listy grupowane iOS (inset grouped): komórki na licu, tło = jezdnia ─── */
+.sekcja { display: flex; flex-direction: column; gap: 6px; }
+.sekcja > h2, .sekcja > .stopka { margin: 0; padding: 0 var(--od-m); font-size: var(--fs-footnote); line-height: var(--lh-footnote); font-weight: 400; color: var(--tekst2); }
+.sekcja > h2 { font-size: var(--fs-subhead); line-height: var(--lh-subhead); color: var(--tekst2); }
+.grupa { background: var(--lico); border-radius: var(--r-komorka-grupy); overflow: hidden; }
+.wiersz { min-height: var(--cel-min); display: flex; align-items: center; gap: var(--od-s); padding: 11px var(--od-m); position: relative; flex-wrap: wrap; }
+.wiersz + .wiersz::before { content: ""; position: absolute; top: 0; left: var(--od-m); right: 0; height: 1px; background: var(--separator); }
+.wiersz .tx { flex: 1 1 calc(9rem * var(--dt-tresc, 1)); min-width: 0; font-size: var(--fs-body); line-height: var(--lh-body); overflow-wrap: break-word; }
+.wiersz .tx small { display: block; font-size: var(--fs-subhead); line-height: var(--lh-subhead); color: var(--tekst2); }
+.wiersz .tx .t { font-size: var(--fs-tytul-wiersza); line-height: var(--lh-tytul-wiersza); font-weight: var(--fw-tytul-wiersza); color: var(--tekst); }
+.wiersz .tx b { display: block; }
+.wiersz .tx a { display: block; color: var(--braz); text-decoration: underline; text-underline-offset: 2px; font-size: var(--fs-subhead); overflow-wrap: anywhere; }
+.ptaszek { width: 18px; height: 18px; flex: none; fill: none; stroke: var(--braz); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; margin-left: auto; }
+.chevron { width: 9px; height: 15px; flex: none; fill: none; stroke: var(--tekst2); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; margin-left: auto; }
+.zewn { width: 18px; height: 18px; flex: none; fill: none; stroke: var(--braz); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; margin-left: auto; }
+.przelacznik { width: 51px; height: 31px; border-radius: 16px; background: var(--separator); position: relative; flex: none; margin-left: auto; }
+.przelacznik::after { content: ""; position: absolute; top: 2px; left: 2px; width: 27px; height: 27px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 1px 3px #0004; }
+.przelacznik.wl { background: var(--braz); }
+.przelacznik.wl::after { left: 22px; }
+.miniatura { width: 60px; height: 44px; flex: none; border: var(--ob-tablica-mala) solid var(--braz); border-radius: var(--r-tablica-mala); background: var(--lico); color: var(--braz); display: grid; place-items: center; }
+.miniatura svg { width: 50px; height: 30px; }
+
+/* segmenty (UISegmentedControl); przy dużym tekście przechodzą w pionową listę */
+.segmenty { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, calc(6rem * var(--dt-tresc, 1))), 1fr)); gap: 2px; background: var(--separator); border-radius: 9px; padding: 2px; }
+.segmenty span { min-height: 36px; display: grid; place-items: center; text-align: center; font-size: var(--fs-subhead); line-height: var(--lh-subhead); border-radius: 7px; color: var(--tekst); padding: 4px 6px; }
+.segmenty span.wyb { background: var(--lico); font-weight: 600; box-shadow: 0 0 0 var(--ob-przycisk) var(--braz) inset; }
+
+/* ostrzeżenie na postoju: ikona + tekst + kolor */
+.baner { display: flex; flex-wrap: wrap; gap: var(--od-s); align-items: flex-start; background: var(--lico); border-radius: var(--r-komorka-grupy); padding: var(--od-s) var(--od-m); border-left: 6px solid var(--ostrz); }
+.baner svg { width: 26px; height: 26px; flex: none; color: var(--ostrz); }
+.baner p { margin: 0; flex: 1 1 calc(10rem * var(--dt-tresc, 1)); min-width: 0; overflow-wrap: break-word; font-size: var(--fs-body); line-height: var(--lh-body); }
+.baner p b { color: var(--ostrz); }
+
+.akapit { margin: 0; overflow-wrap: break-word; font-size: var(--fs-body); line-height: var(--lh-body); }
+.akapit.d { color: var(--tekst2); }
+.tytul-sekcji { margin: 0; font-size: var(--fs-tytul-sekcji); line-height: var(--lh-tytul-sekcji); font-weight: var(--fw-tytul-sekcji); color: var(--tekst); }
