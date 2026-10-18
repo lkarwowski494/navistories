@@ -167,3 +167,7 @@ Kod kształtu trzeba raz poznać, a (a) wydłuża pierwszy ekran o trzy wiersze.
 | Aplikacja | Metafora / element firmowy | Paleta (rdzeń) | Kroje | Uwagi właściciela |
 |---|---|---|---|---|
 | NaviStories („Drogowskaz”) | Polski brązowy drogowskaz turystyczny (E-7…E-12, E-22b). **Tablica** = bieżąca historia: sylwetka typu obiektu, nazwa, strzałka strony drogi z km, etykieta rodzaju treści (pełny / kreskowany / kontur = Fakty / Legenda / Bajka), krawędź postępu wzdłuż dolnego obrzeża. W ruchu tablica jest jednym wielkim przyciskiem pauzy. Ikona: tablica z sylwetką. | lico `#FFFFFF`, brąz `#6B3815` (przeliczony z tab. 1.3 Dz.U. 2019 poz. 2311, Y 0,06 — przybliżenie), jezdnia `#ECEDEE`, asfalt nocą `#1C1E21`, brąz nocny `#D9A877`, ostrzeżenie `#B20013` (tylko ostrzeżenia) | Jost 500/600 z ss01 (tytuły; proporcja m/d 0,667 jak w pkt 1.4.1 przepisu), treść SF Pro | 18.10.2026: „podoba mi się drogowskaz”; Jost z ss01; etykieta z kodem kształtu. Uwaga dla kolejnych aplikacji: brąz + biel + sylwetka obiektu należą do NaviStories. |
+
+## 8. Decyzje właściciela (18.10.2026)
+
+„Wszystkie decyzje zgodnie z rekomendacją”: D1 (C), D2 (a), D3 (a), D4 (a), D5 (a), D6 (a). Zapis także w dzienniku decyzji projektu (Dysk Google, „02 Dziennik decyzji”).
